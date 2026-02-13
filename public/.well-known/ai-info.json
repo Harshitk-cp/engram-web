@@ -1,0 +1,47 @@
+{
+  "name": "Engram",
+  "description": "Open-source cognitive memory infrastructure for AI agents. Persistent memory with semantic, episodic, procedural, and working memory systems. Confidence-based tiering, belief dynamics, hybrid vector + graph retrieval.",
+  "url": "https://engram.to",
+  "repository": "https://github.com/Harshitk-cp/engram",
+  "license": "MIT",
+  "category": "AI Infrastructure / Agent Memory",
+  "keywords": [
+    "AI agent memory",
+    "persistent memory",
+    "cognitive memory",
+    "LLM memory",
+    "semantic memory",
+    "episodic memory",
+    "procedural memory",
+    "working memory",
+    "vector database",
+    "knowledge graph",
+    "belief dynamics",
+    "memory tiering",
+    "agent learning",
+    "open source",
+    "self-hosted",
+    "cognitive architecture",
+    "CoALA",
+    "Mem0 alternative"
+  ],
+  "llms_txt": "https://engram.to/llms.txt",
+  "features": {
+    "memory_systems": ["semantic", "episodic", "procedural", "working"],
+    "retrieval": "hybrid vector + graph",
+    "confidence_tiering": true,
+    "belief_dynamics": true,
+    "metacognition": true,
+    "multi_llm": ["OpenAI", "Anthropic", "Gemini", "Cerebras"],
+    "api_endpoints": "40+",
+    "latency_p95": "<10ms"
+  },
+  "tech_stack": ["Go", "PostgreSQL", "pgvector", "Docker"],
+  "use_cases": [
+    "AI agent persistent memory",
+    "Conversational AI with long-term context",
+    "Multi-agent shared memory",
+    "Cognitive architecture research",
+    "LLM application user context persistence"
+  ]
+}

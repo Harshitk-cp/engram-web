@@ -2,13 +2,173 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Cognitive memory infrastructure for AI agents that learn and improve from experience." />
-    <title>Engram — Cognitive Memory for AI Agents</title>
+
+    <!-- Primary Meta Tags -->
+    <title>Engram — Persistent Cognitive Memory for AI Agents | Open Source</title>
+    <meta name="title" content="Engram — Persistent Cognitive Memory for AI Agents | Open Source" />
+    <meta name="description" content="Engram is open-source cognitive memory infrastructure for AI agents. Persistent memory with semantic, episodic, procedural, and working memory systems. Confidence-based tiering, belief dynamics, hybrid vector + graph retrieval. Give your LLM agents a brain that learns." />
+    <meta name="keywords" content="AI agent memory, persistent memory for AI, cognitive memory infrastructure, LLM memory, AI agent long-term memory, semantic memory AI, episodic memory AI, procedural memory AI, working memory AI, vector database AI agents, knowledge graph AI, belief dynamics, memory tiering, AI agent learning, conversational AI memory, multi-agent memory, agent memory API, cognitive architecture, CoALA framework, Mem0 alternative, AI memory system, open source AI memory, self-hosted AI memory, agent context management, LLM context persistence, AI agent infrastructure, memory recall API, hybrid retrieval AI, pgvector, Go AI backend" />
+    <meta name="author" content="Engram" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://engram.to" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://engram.to" />
+    <meta property="og:title" content="Engram — Persistent Cognitive Memory for AI Agents" />
+    <meta property="og:description" content="Open-source cognitive memory infrastructure for AI agents. 4 memory systems, hybrid vector + graph retrieval, confidence-based tiering. Give your LLM agents a brain that learns and improves from experience." />
+    <meta property="og:site_name" content="Engram" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://engram.to" />
+    <meta name="twitter:title" content="Engram — Persistent Cognitive Memory for AI Agents" />
+    <meta name="twitter:description" content="Open-source cognitive memory infrastructure for AI agents. 4 memory systems, hybrid vector + graph retrieval, confidence-based tiering. Give your LLM agents a brain that learns." />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Engram",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Linux, macOS, Windows (Docker)",
+      "description": "Engram is open-source cognitive memory infrastructure for AI agents. It provides persistent memory with four memory systems (semantic, episodic, procedural, working), confidence-based tiering, belief dynamics, and hybrid vector + graph retrieval. Built in Go with PostgreSQL and pgvector.",
+      "url": "https://engram.to",
+      "downloadUrl": "https://github.com/Harshitk-cp/engram",
+      "softwareVersion": "0.x",
+      "license": "https://opensource.org/licenses/MIT",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Persistent semantic memory for facts, preferences, and beliefs",
+        "Episodic memory for rich interaction experiences",
+        "Procedural memory for learned skills and patterns",
+        "Working memory for active context and goals",
+        "Confidence-based memory tiering (hot, warm, cold, archive)",
+        "Belief dynamics with Bayesian confidence updates",
+        "Hybrid vector similarity + knowledge graph retrieval",
+        "Automatic memory extraction from conversations",
+        "Metacognition and self-assessment capabilities",
+        "Multi-LLM support (OpenAI, Anthropic, Gemini, Cerebras)",
+        "40+ REST API endpoints",
+        "Sub-10ms p95 recall latency",
+        "Multi-tenant with per-agent isolation"
+      ],
+      "programmingLanguage": ["Go"],
+      "codeRepository": "https://github.com/Harshitk-cp/engram",
+      "keywords": "AI agent memory, persistent memory, cognitive memory, LLM memory, semantic memory, episodic memory, procedural memory, working memory, vector database, knowledge graph, belief dynamics, memory tiering, agent learning, open source"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Engram",
+      "url": "https://engram.to",
+      "description": "Cognitive memory infrastructure for AI agents that learn and improve from experience",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://github.com/Harshitk-cp/engram/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Engram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Engram is open-source cognitive memory infrastructure for AI agents. It provides persistent, typed memory (semantic, episodic, procedural, working) via a simple HTTP API. Memories strengthen with use, decay when forgotten, and update from feedback — inspired by human cognitive science."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Engram different from a vector database or RAG system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unlike basic vector databases or RAG, Engram implements four distinct memory types inspired by cognitive science, confidence-based tiering where hot memories auto-inject into agent context, belief dynamics with Bayesian updates, hybrid vector + graph retrieval, and memory decay — making it a complete cognitive memory system rather than just a retrieval layer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What memory systems does Engram support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Engram supports four memory systems: Semantic memory (facts, beliefs, preferences), Episodic memory (rich interaction experiences with context), Procedural memory (learned skills and trigger-action patterns), and Working memory (active context and current goals with 7-slot capacity)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Engram open source and self-hosted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Engram is fully open source under the MIT license. It is designed for self-hosting and deploys with a single Docker Compose command. Built in Go with PostgreSQL and pgvector, it has zero external runtime dependencies beyond the database."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- SEO fallback for crawlers that don't execute JavaScript -->
+    <noscript>
+      <article>
+        <h1>Engram — Persistent Cognitive Memory for AI Agents</h1>
+        <p>Engram is open-source cognitive memory infrastructure for AI agents that learn and improve from experience. Store, recall, and evolve typed memories via a simple HTTP API. Memories strengthen with use, decay when forgotten, and update from feedback — just like the human mind.</p>
+
+        <h2>Four Memory Systems Inspired by Cognitive Science</h2>
+        <p>Engram implements four distinct memory types based on established cognitive science research:</p>
+        <ul>
+          <li><strong>Semantic Memory</strong> — Persistent facts, preferences, beliefs, and decisions. Confidence-scored and typed.</li>
+          <li><strong>Episodic Memory</strong> — Rich records of past interactions with full context, emotions, entities, and outcomes.</li>
+          <li><strong>Procedural Memory</strong> — Learned skills as trigger-action patterns extracted from successful episodes.</li>
+          <li><strong>Working Memory</strong> — 7-slot active memory for current goals and reasoning state, mirroring human working memory.</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li><strong>Confidence-Based Memory Tiering</strong> — Hot memories auto-inject into agent prompts. Cold memories surface only when relevant. Archives decay gracefully.</li>
+          <li><strong>Belief Dynamics</strong> — Bayesian log-odds confidence updates. Reinforced memories grow stronger. Contradicted ones weaken. Unused ones decay.</li>
+          <li><strong>Hybrid Retrieval</strong> — Every recall combines vector similarity with knowledge graph traversal up to 2 hops deep.</li>
+          <li><strong>Conversation Extraction</strong> — Automatically extract and classify memories from conversation transcripts.</li>
+          <li><strong>Procedural Learning</strong> — Agents learn reusable skills from successful interactions.</li>
+          <li><strong>Metacognition</strong> — Agents assess their own knowledge quality, detect gaps, and flag uncertainty.</li>
+          <li><strong>Multi-LLM Support</strong> — OpenAI, Anthropic Claude, Google Gemini, Cerebras.</li>
+          <li><strong>40+ REST API Endpoints</strong> — Comprehensive API for all memory operations.</li>
+          <li><strong>Sub-10ms Recall Latency</strong> — p95 latency under 10 milliseconds.</li>
+        </ul>
+
+        <h2>Who Is Engram For?</h2>
+        <ul>
+          <li><strong>AI Agent Developers</strong> — Building agents that need persistent memory across sessions.</li>
+          <li><strong>LLM App Builders</strong> — Products needing user context beyond a single conversation.</li>
+          <li><strong>Multi-Agent Systems</strong> — Shared memory with automatic conflict resolution.</li>
+          <li><strong>Research Teams</strong> — Cognitive architectures based on CoALA, Mem0, ACT-R, MUSE.</li>
+        </ul>
+
+        <h2>Tech Stack</h2>
+        <p>Built with Go (single binary), PostgreSQL, pgvector, and Docker. Self-hosted with one-command deployment.</p>
+
+        <h2>Open Source</h2>
+        <p>Engram is fully open source under the MIT License. <a href="https://github.com/Harshitk-cp/engram">View on GitHub</a>.</p>
+      </article>
+    </noscript>
   </body>
 </html>
