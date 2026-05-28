@@ -37,14 +37,6 @@ const icons: Record<string, React.ReactNode> = {
   ),
 };
 
-const colorMap: Record<string, string> = {
-  purple: "var(--accent-purple)",
-  blue: "var(--accent-blue)",
-  indigo: "var(--accent-indigo)",
-  violet: "var(--accent-violet)",
-  fuchsia: "var(--accent-fuchsia)",
-  rose: "var(--accent-rose)",
-};
 
 export default function Features() {
   return (
@@ -65,14 +57,7 @@ export default function Features() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
-              <div
-                className={styles.icon}
-                style={
-                  {
-                    "--icon-color": colorMap[f.color],
-                  } as React.CSSProperties
-                }
-              >
+              <div className={styles.icon}>
                 {icons[f.icon]}
               </div>
               <h3 className={styles.cardTitle}>{f.title}</h3>

@@ -3,13 +3,6 @@ import { MEMORY_SYSTEMS } from "../../constants/content";
 import SectionHeader from "../ui/SectionHeader";
 import styles from "./MemorySystems.module.css";
 
-const colorMap: Record<string, string> = {
-  purple: "#a78bfa",
-  blue: "#60a5fa",
-  indigo: "#818cf8",
-  violet: "#c084fc",
-};
-
 export default function MemorySystems() {
   return (
     <section className={styles.section} id="memory-systems">
@@ -24,15 +17,10 @@ export default function MemorySystems() {
             <motion.div
               key={m.type}
               className={styles.card}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              style={
-                {
-                  "--card-color": colorMap[m.color],
-                } as React.CSSProperties
-              }
+              transition={{ duration: 0.45, delay: i * 0.08 }}
             >
               <div className={styles.accent} />
               <span className={styles.tag}>{m.type}</span>

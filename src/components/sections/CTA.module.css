@@ -1,95 +1,101 @@
 .section {
   position: relative;
   z-index: 1;
-  padding: 80px 0 120px;
+  padding: 80px 0 112px;
 }
 
 .inner {
   text-align: center;
-  padding: 64px 40px;
-  border-radius: 24px;
+  padding: 72px 40px;
+  border-radius: 12px;
   border: 1px solid var(--border-card);
-  background: linear-gradient(
-    135deg,
-    rgba(167, 139, 250, 0.06) 0%,
-    rgba(99, 102, 241, 0.03) 50%,
-    rgba(96, 165, 250, 0.06) 100%
-  );
-  backdrop-filter: blur(12px);
+  background: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-border), transparent);
 }
 
 .title {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   margin-bottom: 12px;
+  color: var(--text-primary);
 }
 
 .desc {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  max-width: 520px;
+  max-width: 480px;
   margin: 0 auto 32px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .btnPrimary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 28px;
-  border-radius: 10px;
-  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #09090b;
-  background: linear-gradient(135deg, #a78bfa, #818cf8);
-  transition: opacity 0.2s, transform 0.2s;
+  color: #fff;
+  background: var(--accent);
+  transition: background 0.2s;
 }
 
 .btnPrimary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+  background: #5254cc;
 }
 
 .btnSecondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 28px;
-  border-radius: 10px;
-  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
   border: 1px solid var(--border-card);
-  background: var(--bg-card);
-  transition: all 0.2s;
+  background: transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .btnSecondary:hover {
   color: var(--text-primary);
   border-color: var(--border-card-hover);
-  background: var(--bg-card-hover);
 }
 
 @media (max-width: 600px) {
   .inner {
-    padding: 40px 24px;
+    padding: 48px 24px;
   }
 
   .actions {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .btnPrimary,
   .btnSecondary {
-    width: 100%;
     justify-content: center;
   }
 }

@@ -3,8 +3,8 @@ export const GITHUB_URL = "https://github.com/Harshitk-cp/engram";
 export const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "Memory Systems", href: "#memory-systems" },
-  { label: "Is This For Me?", href: "#for-you" },
   { label: "Quickstart", href: "#quickstart" },
+  { label: "Contact", href: "#contact" },
 ] as const;
 
 export const METRICS = [

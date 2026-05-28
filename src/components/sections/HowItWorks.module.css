@@ -1,7 +1,8 @@
 .section {
   position: relative;
   z-index: 1;
-  padding: 120px 0;
+  padding: 100px 0;
+  border-top: 1px solid var(--border-card);
 }
 
 .steps {
@@ -19,47 +20,58 @@
 .connector {
   display: flex;
   align-items: center;
-  padding-top: 28px;
+  padding-top: 24px;
   color: var(--text-muted);
   flex-shrink: 0;
+  opacity: 0.4;
 }
 
 .step {
   flex: 1;
-  padding: 28px;
-  border-radius: 16px;
+  padding: 28px 24px;
+  border-radius: 10px;
   border: 1px solid var(--border-card);
   background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+
+.step:hover {
+  border-color: var(--border-card-hover);
 }
 
 .number {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
   font-family: var(--font-mono);
-  color: var(--accent-purple);
-  background: rgba(167, 139, 250, 0.1);
-  padding: 4px 12px;
-  border-radius: 6px;
-  margin-bottom: 16px;
+  color: var(--accent-text);
+  opacity: 0.7;
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 8px;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .desc {
   font-size: 0.875rem;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 @media (max-width: 800px) {
+  .section {
+    padding: 72px 0;
+  }
+
   .steps {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
   .connector {

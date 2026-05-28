@@ -1,0 +1,202 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 0;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+/* Header row */
+.table thead tr {
+  border-bottom: 1px solid var(--border-card);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.table th {
+  padding: 13px 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table th:not(.featureCol) {
+  text-align: center;
+  width: 18%;
+}
+
+.featureCol {
+  width: 34%;
+}
+
+/* Category group rows */
+.groupRow td {
+  padding: 8px 20px 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-card);
+  border-top: 1px solid var(--border-card);
+}
+
+.groupLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* Data rows */
+.dataRow td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-card);
+  vertical-align: top;
+}
+
+.dataRow:last-child td {
+  border-bottom: none;
+}
+
+.dataRow:hover td {
+  background: rgba(255, 255, 255, 0.012);
+}
+
+/* Feature cell */
+.featureCell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featureName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.featureSub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Cell content */
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.cellNote {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Icons */
+.iconYes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.iconNo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(244, 244, 245, 0.2);
+  flex-shrink: 0;
+}
+
+.iconPartial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(250, 196, 0, 0.08);
+  color: rgba(250, 196, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.planned {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--accent-dim);
+  color: var(--accent-text);
+  letter-spacing: 0.03em;
+}
+
+/* Engram column highlight */
+.engramCol {
+  background: var(--accent-dim) !important;
+  border-left: 1px solid var(--accent-border) !important;
+  border-right: 1px solid var(--accent-border) !important;
+}
+
+.engramCol.groupRow td,
+.groupRow .engramCol {
+  background: color-mix(in srgb, var(--accent-dim) 60%, rgba(255,255,255,0.02)) !important;
+}
+
+.table th.engramCol {
+  color: var(--accent-text) !important;
+  font-size: 0.8rem;
+}
+
+/* Footnote */
+.footnote {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .featureSub {
+    display: none;
+  }
+
+  .cellNote {
+    display: none;
+  }
+
+  .table th,
+  .dataRow td {
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 72px 0;
+  }
+}

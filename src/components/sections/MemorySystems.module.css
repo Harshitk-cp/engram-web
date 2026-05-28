@@ -1,77 +1,76 @@
 .section {
   position: relative;
   z-index: 1;
-  padding: 120px 0;
+  padding: 100px 0;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 1px;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--border-card);
 }
 
 .card {
   position: relative;
-  padding: 32px;
-  border-radius: 16px;
-  border: 1px solid var(--border-card);
-  background: var(--bg-card);
-  backdrop-filter: blur(8px);
+  padding: 32px 28px;
+  background: var(--bg-primary);
   overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s;
+  transition: background 0.2s;
 }
 
 .card:hover {
-  border-color: var(--border-card-hover);
-  transform: translateY(-4px);
+  background: var(--bg-card-hover);
 }
 
 .accent {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--card-color, var(--accent-purple));
-  opacity: 0.6;
+  width: 3px;
+  bottom: 0;
+  background: var(--accent);
+  opacity: 0.5;
 }
 
 .tag {
   display: inline-block;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--card-color, var(--accent-purple));
-  background: color-mix(in srgb, var(--card-color, var(--accent-purple)) 10%, transparent);
-  margin-bottom: 16px;
+  letter-spacing: 0.08em;
+  color: var(--accent-text);
+  margin-bottom: 14px;
+  opacity: 0.7;
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 600;
   margin-bottom: 8px;
   letter-spacing: -0.01em;
+  color: var(--text-primary);
 }
 
 .desc {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
-  line-height: 1.65;
-  margin-bottom: 20px;
+  line-height: 1.7;
+  margin-bottom: 18px;
 }
 
 .example {
-  padding: 12px 16px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--border-card);
 }
 
 .example code {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
@@ -80,18 +79,18 @@
 }
 
 .badge {
-  font-size: 0.7rem;
-  padding: 2px 8px;
+  font-size: 0.68rem;
+  padding: 2px 7px;
   border-radius: 4px;
-  background: color-mix(in srgb, var(--card-color, var(--accent-purple)) 15%, transparent);
-  color: var(--card-color, var(--accent-purple));
+  background: var(--accent-dim);
+  color: var(--accent-text);
   white-space: nowrap;
   font-weight: 500;
 }
 
 @media (max-width: 700px) {
   .section {
-    padding: 80px 0;
+    padding: 72px 0;
   }
 
   .grid {
