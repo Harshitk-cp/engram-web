@@ -52,7 +52,7 @@ export default function Hero() {
             <span className={styles.comment}># Store a typed, confidence-scored memory</span>
             {"\n"}curl -X POST http://localhost:8080/v1/memories \{"\n"}
             {"  "}-H <span className={styles.string}>"Authorization: Bearer $API_KEY"</span> \{"\n"}
-            {"  "}-d <span className={styles.string}>{'\'{"agent_id":"$ID","content":"Prefers TypeScript","memory_type":"preference"}\''}</span>
+            {"  "}-d <span className={styles.string}>{'\'{"agent_id":"$ID","content":"Prefers TypeScript","type":"preference"}\''}</span>
             {"\n\n"}
             <span className={styles.comment}># Recall with hybrid vector + graph traversal</span>
             {"\n"}curl <span className={styles.string}>"http://localhost:8080/v1/memories/recall?query=language+preferences&amp;agent_id=$ID"</span> \{"\n"}

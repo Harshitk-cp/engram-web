@@ -17,6 +17,7 @@ const tiers = [
       "Memory decay & lifecycle",
       "Hybrid vector + graph retrieval",
       "Python SDK + REST API",
+      "LangChain integration (langchain-engram)",
       "Multi-LLM support",
       "Unlimited agents & memories",
       "Community support",
