@@ -75,7 +75,7 @@ Engram is grounded in peer-reviewed cognitive science research:
 | Procedural learning | Yes | No | No | No |
 | Metacognition | Yes | No | No | No |
 | Self-hosted | Yes | Varies | Varies | Cloud |
-| Open source | MIT | Varies | Varies | Partial |
+| Open source | APACHE-2 | Varies | Varies | Partial |
 
 ## Quick Start
 

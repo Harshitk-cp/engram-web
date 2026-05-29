@@ -3,15 +3,16 @@ export const GITHUB_URL = "https://github.com/Harshitk-cp/engram";
 export const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "Memory Systems", href: "#memory-systems" },
+  { label: "Pricing", href: "#pricing" },
   { label: "Quickstart", href: "#quickstart" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
 export const METRICS = [
-  { value: "4", label: "Memory Systems" },
-  { value: "40+", label: "API Endpoints" },
-  { value: "5", label: "LLM Providers" },
-  { value: "<10ms", label: "p95 Recall Latency" },
+  { value: "<10ms", label: "p95 recall latency" },
+  { value: "4", label: "cognitive memory types" },
+  { value: "2-hop", label: "graph traversal depth" },
+  { value: "Apache-2.0", label: "open source" },
 ] as const;
 
 export const FEATURES = [

@@ -1,9 +1,11 @@
 import Hero from "../components/sections/Hero";
 import Metrics from "../components/sections/Metrics";
+import Problem from "../components/sections/Problem";
 import Features from "../components/sections/Features";
 import MemorySystems from "../components/sections/MemorySystems";
 import Comparison from "../components/sections/Comparison";
 import ForYou from "../components/sections/ForYou";
+import Pricing from "../components/sections/Pricing";
 import HowItWorks from "../components/sections/HowItWorks";
 import Quickstart from "../components/sections/Quickstart";
 import Contact from "../components/sections/Contact";
@@ -14,10 +16,12 @@ export default function Home() {
     <>
       <Hero />
       <Metrics />
+      <Problem />
       <Features />
       <MemorySystems />
       <Comparison />
       <ForYou />
+      <Pricing />
       <HowItWorks />
       <Quickstart />
       <Contact />

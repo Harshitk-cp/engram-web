@@ -14,11 +14,11 @@ export default function CTA() {
           transition={{ duration: 0.6 }}
         >
           <h2 className={styles.title}>
-            Ready to give your agents memory?
+            Ship agents that know what they know.
           </h2>
           <p className={styles.desc}>
-            Engram is open source and free to self-host. Star us on GitHub, try
-            the quickstart, or dive into the docs.
+            Open source and free to self-host. One Docker Compose command to a
+            full production memory layer.
           </p>
           <div className={styles.actions}>
             <a
