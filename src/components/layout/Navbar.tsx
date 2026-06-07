@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { GITHUB_URL, NAV_LINKS } from "../../constants/content";
+import { DOCS_URL, GITHUB_URL, NAV_LINKS } from "../../constants/content";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -45,6 +45,14 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <a
+            href={DOCS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            Docs
+          </a>
         </div>
 
         <div className={styles.actions}>
@@ -85,6 +93,15 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <a
+            href={DOCS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.mobileLink}
+            onClick={() => setMobileOpen(false)}
+          >
+            Docs
+          </a>
           <a
             href={GITHUB_URL}
             target="_blank"

@@ -1,4 +1,4 @@
-import { GITHUB_URL } from "../../constants/content";
+import { DOCS_URL, GITHUB_URL } from "../../constants/content";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -41,6 +41,7 @@ export default function Footer() {
               <h4>Product</h4>
               <a href="#features">Features</a>
               <a href="#memory-systems">Memory Systems</a>
+              <a href={DOCS_URL} target="_blank" rel="noopener noreferrer">Docs</a>
               <a href="#quickstart">Quickstart</a>
               <a href="#contact">Contact</a>
             </div>

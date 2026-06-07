@@ -1,5 +1,7 @@
 export const GITHUB_URL = "https://github.com/Harshitk-cp/engram";
 
+export const DOCS_URL = "https://docs.hakuya.ai";
+
 export const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "Memory Systems", href: "#memory-systems" },

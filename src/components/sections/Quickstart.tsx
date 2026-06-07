@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeader from "../ui/SectionHeader";
 import CodeBlock from "../ui/CodeBlock";
+import { DOCS_URL } from "../../constants/content";
 import styles from "./Quickstart.module.css";
 
 const pythonSteps = [
@@ -247,6 +248,31 @@ export default function Quickstart() {
             ))}
           </motion.div>
         </AnimatePresence>
+
+        <motion.div
+          className={styles.cta}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.4 }}
+        >
+          <p className={styles.ctaText}>
+            Ready to go deeper? The full docs cover memory types, scopes,
+            confidence, the graph, and the complete API reference.
+          </p>
+          <a
+            href={DOCS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaBtn}
+          >
+            Read the docs
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
