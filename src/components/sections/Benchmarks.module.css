@@ -1,0 +1,203 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 0;
+}
+
+/* Headline stat cards */
+.headline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 26px 24px;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.statPrimary {
+  border-color: color-mix(in srgb, var(--accent, #a78bfa) 40%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent, #a78bfa) 8%, transparent),
+    rgba(255, 255, 255, 0.012)
+  );
+}
+
+.statValue {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary, #f4f4f5);
+}
+
+.statValueSm {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--text-primary, #f4f4f5);
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Table */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table thead tr {
+  border-bottom: 1px solid var(--border-card);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.table th {
+  padding: 13px 20px;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.taskCol { width: 24%; }
+.whatCol { width: 46%; }
+.scoreCol { width: 30%; }
+
+.dataRow td {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-card);
+  vertical-align: middle;
+}
+
+.dataRow:hover td {
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.totalRow td {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-card);
+  background: rgba(255, 255, 255, 0.022);
+  vertical-align: middle;
+}
+
+.taskCell {
+  vertical-align: middle;
+}
+
+.taskName {
+  font-weight: 600;
+  color: var(--text-primary, #f4f4f5);
+}
+
+.taskFrac {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.whatCell {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Score bar */
+.scoreInner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.barTrack {
+  flex: 1;
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.scoreNum {
+  min-width: 52px;
+  text-align: right;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary, #f4f4f5);
+}
+
+.scoreNumBold {
+  font-weight: 700;
+}
+
+/* Notes */
+.notes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.noteCard {
+  padding: 22px 24px;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.noteTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text-primary, #f4f4f5);
+}
+
+.noteBody {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.footnote {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footnote a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .headline { grid-template-columns: 1fr; }
+  .notes { grid-template-columns: 1fr; }
+  .whatCol, .whatCell { display: none; }
+  .taskCol { width: 50%; }
+  .scoreCol { width: 50%; }
+}

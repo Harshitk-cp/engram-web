@@ -3,12 +3,14 @@ export const GITHUB_URL = "https://github.com/Harshitk-cp/engram";
 export const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "Memory Systems", href: "#memory-systems" },
+  { label: "Benchmarks", href: "#benchmarks" },
   { label: "Pricing", href: "#pricing" },
   { label: "Quickstart", href: "#quickstart" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
 export const METRICS = [
+  { value: "91.4%", label: "LongMemEval accuracy" },
   { value: "<10ms", label: "p95 recall latency" },
   { value: "4", label: "cognitive memory types" },
   { value: "2-hop", label: "graph traversal depth" },
@@ -147,6 +149,59 @@ export const TECH_STACK = [
   { name: "OpenAI", desc: "Embeddings + classification" },
   { name: "Multi-LLM", desc: "Anthropic, Gemini, Cerebras" },
   { name: "Docker", desc: "One command to production" },
+] as const;
+
+export const BENCHMARK_HEADLINE = {
+  overall: "91.4%",
+  overallSub: "Overall accuracy",
+  dataset: "LongMemEval",
+  datasetSub: "ICLR 2025 · histories scalable past 1M tokens",
+} as const;
+
+// LongMemEval per-task results. score is the headline %, frac the raw count.
+export const BENCHMARK_TASKS = [
+  {
+    task: "Knowledge update",
+    score: 100.0,
+    frac: "72/72",
+    tests: "When a fact changes over time, answer with the current value and ignore the superseded one.",
+  },
+  {
+    task: "Abstention",
+    score: 100.0,
+    frac: "30/30",
+    tests: "Recognise an unanswerable question and decline, instead of hallucinating an answer.",
+  },
+  {
+    task: "Single-session · user fact",
+    score: 98.4,
+    frac: "63/64",
+    tests: "Recall a specific fact the user stated within one conversation.",
+  },
+  {
+    task: "Single-session · preference",
+    score: 93.3,
+    frac: "28/30",
+    tests: "Surface a user preference, whether stated outright or implied by repeated behaviour.",
+  },
+  {
+    task: "Multi-session",
+    score: 90.2,
+    frac: "109/121",
+    tests: "Combine and aggregate facts that are spread across many separate conversations.",
+  },
+  {
+    task: "Single-session · assistant",
+    score: 89.3,
+    frac: "50/56",
+    tests: "Recall something the assistant said, recommended, or listed earlier in a session.",
+  },
+  {
+    task: "Temporal reasoning",
+    score: 82.3,
+    frac: "102/124",
+    tests: "Reason about when events happened — order, duration, and 'how long ago' across sessions.",
+  },
 ] as const;
 
 export const FLOW_STEPS = [

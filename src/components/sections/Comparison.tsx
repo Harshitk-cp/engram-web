@@ -38,6 +38,13 @@ const groups: Group[] = [
         zep: { status: "no", note: "Graph nodes and edges only; no cognitive type model" },
         engram: { status: "yes", note: "All four types, each with distinct storage and retrieval semantics" },
       },
+      {
+        feature: "One agent, many isolated subjects",
+        sub: "Scope memory to the customer/guest/patient it's about — with per-subject belief dynamics",
+        mem0: { status: "partial", note: "user_id / run_id filters, but combined-key filtering was historically buggy; same decay/confidence for all" },
+        zep: { status: "partial", note: "Per-user graph + threads, but no per-subject decay, confidence, or contradiction" },
+        engram: { status: "yes", note: "Anchors + sessions + tenant canon, composed on recall; reinforcement, decay & contradiction applied per subject" },
+      },
     ],
   },
   {

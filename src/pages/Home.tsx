@@ -4,6 +4,7 @@ import Problem from "../components/sections/Problem";
 import Features from "../components/sections/Features";
 import MemorySystems from "../components/sections/MemorySystems";
 import Comparison from "../components/sections/Comparison";
+import Benchmarks from "../components/sections/Benchmarks";
 import ForYou from "../components/sections/ForYou";
 import Pricing from "../components/sections/Pricing";
 import HowItWorks from "../components/sections/HowItWorks";
@@ -20,6 +21,7 @@ export default function Home() {
       <Features />
       <MemorySystems />
       <Comparison />
+      <Benchmarks />
       <ForYou />
       <Pricing />
       <HowItWorks />
