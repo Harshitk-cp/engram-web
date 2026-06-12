@@ -1,5 +1,6 @@
 import Hero from "../components/sections/Hero";
 import Metrics from "../components/sections/Metrics";
+import Trust from "../components/sections/Trust";
 import Problem from "../components/sections/Problem";
 import Features from "../components/sections/Features";
 import MemorySystems from "../components/sections/MemorySystems";
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       <Hero />
       <Metrics />
+      <Trust />
       <Problem />
       <Features />
       <MemorySystems />

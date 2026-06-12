@@ -1,0 +1,25 @@
+.field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  /* keep the left text column calm; let the field breathe on the right */
+  -webkit-mask-image: linear-gradient(
+      100deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.55) 48%,
+      rgba(0, 0, 0, 1) 78%
+    ),
+    linear-gradient(180deg, black 78%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(
+      100deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.55) 48%,
+      rgba(0, 0, 0, 1) 78%
+    ),
+    linear-gradient(180deg, black 78%, transparent 100%);
+  mask-composite: intersect;
+}

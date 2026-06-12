@@ -30,3 +30,7 @@ Allow: /
 
 User-agent: cohere-ai
 Allow: /
+
+# LLM-readable site context
+# https://engram.to/llms.txt
+# https://engram.to/llms-full.txt

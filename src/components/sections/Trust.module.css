@@ -1,0 +1,128 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 0;
+  border-top: 1px solid var(--border-card);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--border-card);
+}
+
+.card {
+  padding: 36px 32px;
+  background: var(--bg-primary);
+  transition: background 0.2s;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  color: var(--accent-text);
+}
+
+.cardTitle {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Why-now strip */
+.whyNow {
+  margin-top: 28px;
+  padding: 24px 28px;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(167, 139, 250, 0.06) 0%, rgba(99, 102, 241, 0.03) 100%);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.whyNowLabel {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.whyNowItems {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  flex: 1;
+}
+
+.whyNowItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.whyNowStat {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.whyNowText {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .whyNow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .whyNowItems {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 28px 24px;
+  }
+}

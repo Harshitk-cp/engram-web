@@ -44,8 +44,8 @@ export default function Features() {
       <div className="container">
         <SectionHeader
           tag="Core Capabilities"
-          title="Everything agents need to remember"
-          description="Engram goes beyond simple vector storage. It models memory the way cognitive science says it should work."
+          title="A cognitive engine under the trust layer"
+          description="Provenance and audit are only worth as much as the memory underneath them. Engram models memory the way cognitive science says it should work — typed, confidence-scored, and alive."
         />
         <div className={styles.grid}>
           {FEATURES.map((f, i) => (

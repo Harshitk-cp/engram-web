@@ -14,7 +14,7 @@ export default function CTA() {
           transition={{ duration: 0.6 }}
         >
           <h2 className={styles.title}>
-            Ship agents that know what they know.
+            Ship memory you can prove.
           </h2>
           <p className={styles.desc}>
             Open source and free to self-host. One Docker Compose command to a

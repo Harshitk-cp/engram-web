@@ -28,7 +28,7 @@ export default function Footer() {
               <span className={styles.logoName}>engram</span>
             </div>
             <p className={styles.tagline}>
-              Agent memory infrastructure for production AI systems.
+              Provable memory infrastructure for production AI agents.
             </p>
             <a href="mailto:tech@engram.to" className={styles.email}>
               tech@engram.to

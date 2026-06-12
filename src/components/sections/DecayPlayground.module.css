@@ -1,0 +1,231 @@
+.card {
+  position: relative;
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.015) 100%);
+  backdrop-filter: blur(6px);
+  padding: 18px 18px 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(99, 102, 241, 0.05);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.cardTitle {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.timeScale {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--text-muted);
+}
+
+/* ── memory chip ── */
+.memChip {
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  background: var(--bg-primary);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  transition: border-color 0.4s, opacity 0.4s;
+}
+
+.memChipStale {
+  border-color: rgba(251, 113, 133, 0.4);
+}
+
+.memMeta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.memType {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tier {
+  margin-left: auto;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 99px;
+  transition: color 0.3s, background 0.3s;
+}
+
+.tier_hot {
+  color: var(--accent-text);
+  background: var(--accent-dim);
+}
+
+.tier_warm {
+  color: #c084fc;
+  background: rgba(192, 132, 252, 0.12);
+}
+
+.tier_stale {
+  color: #fb7185;
+  background: rgba(251, 113, 133, 0.12);
+}
+
+.memContent {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.memFoot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.confRead strong {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.conf_hot { color: var(--accent-text); }
+.conf_warm { color: #c084fc; }
+.conf_stale { color: #fb7185; }
+
+/* ── chart ── */
+.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.gridline {
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 1;
+}
+
+.threshold {
+  stroke: rgba(251, 113, 133, 0.45);
+  stroke-width: 1;
+  stroke-dasharray: 5 5;
+}
+
+.thresholdLabel {
+  fill: rgba(251, 113, 133, 0.65);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.curve {
+  stroke: #818cf8;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px rgba(129, 140, 248, 0.45));
+}
+
+.tip {
+  fill: #c4b5fd;
+  filter: drop-shadow(0 0 5px rgba(167, 139, 250, 0.9));
+}
+
+/* ── footer ── */
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.eventLine {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btnReinforce,
+.btnContradict {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 8px;
+  transition: transform 0.12s, opacity 0.15s, border-color 0.15s;
+}
+
+.btnReinforce {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btnReinforce:hover {
+  opacity: 0.88;
+}
+
+.btnReinforce:active {
+  transform: scale(0.96);
+}
+
+.btnContradict {
+  border: 1px solid rgba(251, 113, 133, 0.4);
+  color: #fb7185;
+}
+
+.btnContradict:hover {
+  border-color: rgba(251, 113, 133, 0.7);
+}
+
+.btnContradict:active {
+  transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liveDot {
+    animation: none;
+  }
+
+  .btnReinforce:active,
+  .btnContradict:active {
+    transform: none;
+  }
+}

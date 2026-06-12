@@ -1,0 +1,124 @@
+.rail {
+  position: fixed;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.segment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.line {
+  width: 1px;
+  height: 26px;
+  margin-left: 3.5px;
+  background: var(--border-card);
+  transition: background 0.45s ease;
+}
+
+.lineSealed {
+  background: linear-gradient(180deg, var(--accent-text), var(--accent));
+}
+
+.node {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 2px 0;
+  pointer-events: auto;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--text-muted);
+  background: transparent;
+  transition: background 0.35s, border-color 0.35s, box-shadow 0.35s;
+  flex-shrink: 0;
+}
+
+.nodeSealed .dot {
+  background: var(--accent);
+  border-color: var(--accent-text);
+}
+
+.nodeActive .dot {
+  box-shadow: 0 0 10px rgba(129, 140, 248, 0.6);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.node:hover .meta,
+.nodeActive .meta {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.hash {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.nodeSealed .hash {
+  color: var(--accent-text);
+}
+
+.verdict {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  margin-left: -2px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--success);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.verdictOn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1380px) {
+  .rail {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line,
+  .dot,
+  .meta,
+  .verdict {
+    transition: none;
+  }
+}

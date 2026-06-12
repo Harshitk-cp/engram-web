@@ -3,6 +3,7 @@ export const GITHUB_URL = "https://github.com/Harshitk-cp/engram";
 export const DOCS_URL = "https://docs.hakuya.ai";
 
 export const NAV_LINKS = [
+  { label: "Trust", href: "#trust" },
   { label: "Features", href: "#features" },
   { label: "Memory Systems", href: "#memory-systems" },
   { label: "Benchmarks", href: "#benchmarks" },
@@ -13,10 +14,42 @@ export const NAV_LINKS = [
 
 export const METRICS = [
   { value: "91.4%", label: "LongMemEval accuracy" },
+  { value: "SHA-256", label: "tamper-evident audit chain" },
+  { value: "Per-subject", label: "cryptographic erasure" },
   { value: "<10ms", label: "p95 recall latency" },
-  { value: "4", label: "cognitive memory types" },
-  { value: "2-hop", label: "graph traversal depth" },
   { value: "Apache-2.0", label: "open source" },
+] as const;
+
+// Flagship "Trust & Governance" pillars — the real, shipped differentiators.
+export const TRUST_PILLARS = [
+  {
+    title: "Provenance on every belief",
+    description:
+      "Each memory carries its source, evidence type, and confidence. You can always answer where a belief came from and why the agent holds it — the foundation for trusting, or distrusting, what an agent remembers.",
+    icon: "shield",
+    color: "purple" as const,
+  },
+  {
+    title: "Tamper-evident audit trail",
+    description:
+      "Every change — created, reinforced, decayed, contradicted, redacted — is appended to a per-tenant SHA-256 hash-chained log. Verify the whole chain in one call; export a signed record for SOC 2 / HIPAA review. Edit, reorder, or drop a single row and verification fails.",
+    icon: "chain",
+    color: "blue" as const,
+  },
+  {
+    title: "Verified per-subject erasure",
+    description:
+      "Cryptographically shred everything Engram holds about one customer, patient, or guest — and keep a provable record that you did. Right-to-be-forgotten that survives an append-only audit log. Built for GDPR Article 17 and the EU AI Act.",
+    icon: "key",
+    color: "indigo" as const,
+  },
+  {
+    title: "Self-cleaning memory",
+    description:
+      "Stale beliefs lose confidence; redundant ones suppress each other through competition-aware decay. Other stores accumulate junk — one public audit of a leading memory layer found 97.8% of entries were garbage after a month. Engram's memory stays clean on its own.",
+    icon: "broom",
+    color: "violet" as const,
+  },
 ] as const;
 
 export const FEATURES = [

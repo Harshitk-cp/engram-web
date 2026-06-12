@@ -51,11 +51,11 @@ const groups: Group[] = [
     category: "Memory Quality",
     rows: [
       {
-        feature: "Calibrated confidence scoring",
-        sub: "Each memory carries a probabilistically meaningful confidence, not just a timestamp",
+        feature: "Confidence & belief dynamics",
+        sub: "Each memory carries a confidence that moves with evidence and time — not just a timestamp",
         mem0: { status: "no", note: "ADD / UPDATE / DELETE operations only; no confidence value on memories" },
         zep: { status: "no", note: "Temporal metadata (valid_at / invalid_at) tracks when, not how certain" },
-        engram: { status: "yes", note: "Log-odds arithmetic — confidence changes with reinforcement, contradiction, and decay" },
+        engram: { status: "yes", note: "Log-odds confidence that rises with reinforcement and decays when stale, surfaced on every memory" },
       },
       {
         feature: "Memory decay",
@@ -93,7 +93,40 @@ const groups: Group[] = [
     ],
   },
   {
-    category: "Reliability & Compliance",
+    category: "Trust & Governance",
+    rows: [
+      {
+        feature: "Tamper-evident audit trail",
+        sub: "A record of every belief change that can be proven intact",
+        mem0: { status: "partial", note: "Operation log (ADD / UPDATE / DELETE / NOOP); no integrity guarantee" },
+        zep: { status: "partial", note: "Temporal provenance per fact; no tamper-evidence" },
+        engram: { status: "yes", note: "Per-tenant SHA-256 hash chain — verify in one call, export a signed record; any edit breaks the chain" },
+      },
+      {
+        feature: "Write-provenance & poisoning resistance",
+        sub: "Knowing where a memory came from — and defending the store against malicious writes (OWASP ASI06)",
+        mem0: { status: "no", note: "No write provenance; a CVSS 8.1 injection flaw was disclosed across backends in 2026" },
+        zep: { status: "partial", note: "Graph carries source nodes, but no write-time trust controls" },
+        engram: { status: "yes", note: "Evidence-typed provenance on every write, recorded in the tamper-evident log" },
+      },
+      {
+        feature: "Verified per-subject erasure",
+        sub: "Provably forget one customer, patient, or guest — and keep the receipt",
+        mem0: { status: "partial", note: "Delete API removes rows; no per-subject scope or proof of erasure" },
+        zep: { status: "partial", note: "Delete by group/user; no cryptographic erasure or audit receipt" },
+        engram: { status: "yes", note: "Cryptographic shred scoped to one subject, recorded in the audit chain — GDPR Art. 17 / EU AI Act" },
+      },
+      {
+        feature: "Knowledge health monitoring",
+        sub: "Visibility into the quality and trustworthiness of an agent's knowledge state",
+        mem0: { status: "partial", note: "Analytics dashboard — latency, token usage, accuracy metrics" },
+        zep: { status: "no", note: "No health monitoring; temporal logs require manual querying" },
+        engram: { status: "yes", note: "Confidence distribution, staleness indicators, and learning velocity per agent" },
+      },
+    ],
+  },
+  {
+    category: "Deployment",
     rows: [
       {
         feature: "Self-hosted",
@@ -101,20 +134,6 @@ const groups: Group[] = [
         mem0: { status: "yes", note: "Docker Compose (FastAPI + PostgreSQL + optional Neo4j)" },
         zep: { status: "no", note: "Community Edition deprecated April 2025; Graphiti library requires self-assembly" },
         engram: { status: "yes", note: "Single Go binary — no runtime dependencies beyond Postgres" },
-      },
-      {
-        feature: "Knowledge health monitoring",
-        sub: "Visibility into the quality and trustworthiness of an agent's knowledge state",
-        mem0: { status: "partial", note: "Analytics dashboard — latency, token usage, accuracy metrics" },
-        zep: { status: "no", note: "No health monitoring; temporal logs require manual querying" },
-        engram: { status: "yes", note: "Confidence distribution, contradiction rate, staleness indicators, learning velocity" },
-      },
-      {
-        feature: "Mutation audit trail",
-        sub: "Explainable record of how every belief was created or changed",
-        mem0: { status: "partial", note: "Operation log (ADD / UPDATE / DELETE / NOOP) without causality chain" },
-        zep: { status: "partial", note: "Temporal provenance tracks ingest_at / valid_at / invalid_at per fact" },
-        engram: { status: "yes", note: "Full mutation history with evidence source, confidence delta, and causal link" },
       },
     ],
   },
@@ -173,7 +192,7 @@ export default function Comparison() {
         <SectionHeader
           tag="Comparison"
           title="Where others stop, Engram starts"
-          description="Mem0 and Zep solve retrieval. Engram solves reliability — tracking not just what agents know, but how confident they should be, when to doubt it, and why it changed."
+          description="Mem0 and Zep solve retrieval. Engram solves trust — provenance on every belief, a tamper-evident audit trail, and verified erasure no other memory layer ships."
         />
         <motion.div
           className={styles.tableWrap}
@@ -215,7 +234,7 @@ export default function Comparison() {
         </motion.div>
 
         <p className={styles.footnote}>
-          Based on public documentation as of May 2026. Zep Community Edition was deprecated in April 2025.
+          Based on public documentation as of June 2026. Zep Community Edition was deprecated in April 2025.
         </p>
       </div>
     </section>

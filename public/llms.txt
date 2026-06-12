@@ -1,104 +1,79 @@
-# Engram — Cognitive Memory Infrastructure for AI Agents
+# Engram — Provable Memory Infrastructure for AI Agents
 
-> Engram is open-source cognitive memory infrastructure that gives AI agents persistent, typed memory inspired by human cognitive science. It is a self-hosted HTTP API backend built in Go with PostgreSQL and pgvector.
+> Engram is open-source agent memory you can prove: every belief carries write-provenance and a confidence that decays when stale, every change is sealed in a tamper-evident SHA-256 audit trail, and any subject's memories can be cryptographically erased on request (GDPR / EU AI Act). Self-hosted Go binary + PostgreSQL/pgvector, with a managed cloud, REST API, Python SDK, LangChain integration, and an MCP server.
 
-## What Engram Does
+Engram positions itself as the trust layer for agent memory: where other memory layers (Mem0, Zep, vector databases) solve storage and retrieval, Engram solves whether the memory can be trusted, audited, and provably deleted.
 
-Engram provides AI agents with persistent memory that works like the human brain. Instead of losing context between conversations, agents using Engram can store, recall, and evolve memories over time. Memories strengthen with use, decay when forgotten, and update from feedback.
+## Why trust is the differentiator (2026 context)
 
-## The Problem Engram Solves
+- OWASP's Agentic Top 10 lists Memory & Context Poisoning (ASI06) as a top risk; research attacks (MINJA) achieve >95% injection success against auto-extracting memory stores. Engram records evidence-typed provenance on every write and seals every mutation in a hash chain.
+- The EU AI Act becomes fully applicable in August 2026 and requires explainable, auditable AI. Engram can answer "what did the agent believe, when, and why" with a verifiable record.
+- A public production audit of a leading memory layer found 97.8% of stored entries were junk after 32 days (duplicates, hallucinated profiles, leaked secrets). Engram's competition-aware decay and contradiction handling keep the store clean automatically.
 
-- AI agents forget everything between sessions — Engram gives them persistent memory
-- RAG and vector databases treat all information equally — Engram uses confidence-based tiering to prioritize what matters
-- Agents can't detect contradictory information — Engram's belief dynamics surface conflicts
-- No mechanism for agents to learn from experience — Engram implements cognitive learning patterns
-- Context windows overflow with retrieved information — Engram's tiering auto-injects only high-confidence memories
+## Trust & governance capabilities
 
-## Four Memory Systems (Inspired by Cognitive Science)
+- **Write-provenance on every belief** — each memory stores its source, evidence type, and confidence; recall can explain why the agent holds a belief.
+- **Tamper-evident audit trail** — per-tenant SHA-256 hash chain over every memory mutation (create, reinforce, decay, contradict, redact). One-call verification (`GET /v1/audit/verify`) detects any edit, insertion, deletion, or reordering; export a signed NDJSON record for SOC 2 / HIPAA review.
+- **Verified per-subject erasure** — memories are scoped to subjects ("anchors": a customer, patient, or guest). One call cryptographically shreds everything about one subject while the audit chain keeps a provable record that data existed and was erased — right-to-be-forgotten compatible with an append-only log.
+- **Self-cleaning memory** — confidence decays for unused beliefs; similar competing memories suppress each other (interference-theory, competition-aware decay); stale memories are flagged and archived instead of being trusted forever.
+- **Contradiction detection** — when new information conflicts with an existing belief, Engram detects the tension and resolves it (demote, archive as superseded, or coexist as contextual variants).
 
-1. **Semantic Memory** — Facts, preferences, beliefs, and decisions. Typed and confidence-scored. Example: "User prefers dark mode" (confidence: 0.92)
-2. **Episodic Memory** — Rich records of past interactions with full context, emotions, entities, causal links, and outcomes. Example: "Helped debug authentication flow — resolved successfully"
-3. **Procedural Memory** — Learned skills and trigger-action patterns extracted from successful episodes. Example: "When error occurs → check logs first" (success rate: 87%)
-4. **Working Memory** — 7-slot active memory for current goals, reasoning state, and recent messages. Mirrors human working memory capacity.
+## Cognitive engine
 
-## Key Features
+- **Four memory types** — semantic (facts/preferences), episodic (experiences with outcomes), procedural (learned trigger→action skills), and schema (higher-order patterns), plus a 7-slot working memory.
+- **Belief dynamics** — log-odds confidence updates: reinforcement strengthens, contradiction weakens, disuse decays; confidence-based tiering (hot memories auto-inject into context).
+- **Hybrid retrieval** — vector similarity (pgvector) fused with knowledge-graph traversal up to 2 hops; results ranked by relevance × recency × confidence; sub-10ms p95 recall.
+- **Multi-subject isolation** — one agent can serve thousands of isolated end-subjects via anchors, sessions, and tenant-wide canon memory, with per-binding decay rates and per-subject GDPR purge. Flat user_id tags in other systems have no equivalent.
+- **Conversation ingestion** — automatic memory extraction and classification from transcripts.
 
-- **Confidence-Based Tiering**: Memories are auto-tiered into Hot (>0.85, auto-injected), Warm (0.70-0.85, on-demand), Cold (0.40-0.70, explicit query), Archive (<0.40, soft-deleted)
-- **Belief Dynamics**: Bayesian log-odds confidence updates. Reinforced memories strengthen (+0.05), contradicted memories weaken (-0.2), unused memories decay naturally, recalled memories get a small boost (+0.02)
-- **Hybrid Retrieval**: Every recall combines vector similarity search with knowledge graph traversal up to 2 hops deep
-- **Conversation Extraction**: Automatically extract memories from conversation transcripts using LLM-powered classification
-- **Procedural Learning**: Agents learn skills from successful episodes as trigger-action patterns
-- **Metacognition**: Agents can assess their own knowledge quality, detect gaps, and flag uncertainty
-- **Multi-LLM Support**: Works with OpenAI, Anthropic Claude, Google Gemini, and Cerebras
-- **40+ API Endpoints**: Comprehensive REST API for all memory operations
-- **Sub-10ms p95 Recall Latency**: Fast memory retrieval for real-time agent interactions
-- **Multi-Tenant**: Per-agent memory isolation with API key authentication
+## Benchmark
 
-## Tech Stack
+LongMemEval (ICLR 2025, 500 questions): **91.4% overall** with a reproducible public harness. Per-task: knowledge update 100%, abstention 100%, single-session user 98.4%, preference 93.3%, multi-session 90.2%, assistant 89.3%, temporal reasoning 82.3%.
 
-- **Go** — Single binary, zero runtime dependencies
-- **PostgreSQL** — Battle-tested relational storage
-- **pgvector** — Native vector similarity search
-- **Docker** — One-command deployment via Docker Compose
+## Integration
 
-## Who Engram Is For
+- REST API (~70 endpoints), API-key auth with per-tenant isolation
+- Python SDK: `pip install engram.to` (sync + async, Pydantic v2)
+- LangChain: `pip install langchain-engram` (EngramRetriever)
+- MCP server for Claude Desktop / Claude Code / Cursor / Windsurf: tools `remember`, `recall`, `recall_graph`, `forget`, `get_hot_context`, `list_agents`
+- Self-host: single Go binary, PostgreSQL + pgvector, Docker Compose one-liner; Apache-2.0 license
+- Managed cloud: free tier planned; Developer $29/mo, Team $149/mo (waitlist)
 
-- **AI Agent Developers** building conversational agents, copilots, or assistants that interact with users over time
-- **LLM App Builders** shipping products that need persistent user context beyond a single session
-- **Multi-Agent Systems** needing shared memory with automatic conflict resolution
-- **Research Teams** implementing cognitive architectures grounded in CoALA, Mem0, ACT-R, and MUSE research
+## Comparison (June 2026)
 
-## Who Engram Is NOT For
+| Capability | Mem0 | Zep | Engram |
+|---|---|---|---|
+| Tamper-evident audit trail | No (op log only) | No (temporal provenance only) | Yes — SHA-256 hash chain + verify + signed export |
+| Write-provenance / poisoning resistance | No | Partial | Yes — evidence-typed provenance on every write |
+| Verified per-subject erasure | Partial (row delete) | Partial (group delete) | Yes — cryptographic shred + audit receipt |
+| Memory decay / self-cleaning | No | No | Yes — competition-aware decay |
+| Confidence & belief dynamics | No | No | Yes — log-odds, surfaced on every memory |
+| 4-type cognitive memory model | No | No | Yes |
+| Multi-subject isolation | user_id tags | per-user graphs | Anchors + sessions + canon, per-subject purge |
+| Self-hosted | Yes | No (CE deprecated 2025) | Yes — single Go binary |
 
-- Projects that only need simple key-value storage
-- Teams looking for a standalone vector database
-- Single-turn, stateless bot builders
-
-## Research Foundations
-
-Engram is grounded in peer-reviewed cognitive science research:
-- **CoALA** (Cognitive Architectures for Language Agents) — Framework for structured agent memory
-- **Mem0** — Graph-based memory showing 26% improvement in retrieval quality
-- **ACT-R** — Memory activation and decay principles
-- **Ebbinghaus Forgetting Curves** — Time-based memory decay modeling
-- **MUSE** — Metacognitive frameworks for agent self-assessment
-
-## Comparison to Alternatives
-
-| Feature | Engram | Vector DB (Pinecone, Weaviate) | RAG Systems | Mem0 |
-|---------|--------|-------------------------------|-------------|------|
-| Typed memory systems | 4 types | No | No | Partial |
-| Confidence tiering | Yes | No | No | No |
-| Belief dynamics | Bayesian | No | No | No |
-| Graph + vector retrieval | Hybrid | Vector only | Vector only | Graph |
-| Memory decay | Yes | No | No | No |
-| Procedural learning | Yes | No | No | No |
-| Metacognition | Yes | No | No | No |
-| Self-hosted | Yes | Varies | Varies | Cloud |
-| Open source | APACHE-2 | Varies | Varies | Partial |
-
-## Quick Start
+## Quick start
 
 ```bash
-# 1. Start the server
 docker compose up -d
-
-# 2. Create an agent
-curl -X POST http://localhost:8080/v1/agents \
-  -H "Authorization: Bearer $API_KEY" \
-  -d '{"name": "my-agent"}'
-
-# 3. Store a memory
 curl -X POST http://localhost:8080/v1/memories \
   -H "Authorization: Bearer $API_KEY" \
-  -d '{"agent_id": "...", "content": "User prefers dark mode", "memory_type": "preference"}'
-
-# 4. Recall memories
-curl http://localhost:8080/v1/memories/recall?query="user+preferences"&agent_id=...
+  -d '{"agent_id":"$ID","content":"Prefers TypeScript","type":"preference"}'
+curl http://localhost:8080/v1/audit/verify -H "Authorization: Bearer $API_KEY"
+# → {"valid": true, "entries": 1, "head": "a91f…"}
 ```
+
+## Who it's for
+
+AI agent developers shipping to production; teams in regulated industries (health, finance, legal) needing auditable agent memory; multi-agent and multi-subject B2B deployments (one support/clinical/concierge agent serving thousands of isolated end-users); platform teams replacing DIY Redis+pgvector memory stacks.
+
+Not for: simple key-value storage, standalone vector-database needs, or single-turn stateless bots.
 
 ## Links
 
 - Website: https://engram.to
-- GitHub: https://github.com/Harshitk-cp/engram
-- License: MIT (fully open source)
+- Docs: https://docs.hakuya.ai
+- GitHub: https://github.com/Harshitk-cp/engram (Apache-2.0)
+- Python SDK: https://pypi.org/project/engram.to/
+- LangChain integration: https://pypi.org/project/langchain-engram/
+- Expanded context for LLMs: https://engram.to/llms-full.txt
