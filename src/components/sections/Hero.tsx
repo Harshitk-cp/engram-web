@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ProblemScenario } from "./Problem";
 import DecayPlayground from "./DecayPlayground";
 import MemoryField from "../ui/MemoryField";
-import { GITHUB_URL } from "../../constants/content";
+import { CONSOLE_URL, GITHUB_URL } from "../../constants/content";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -55,7 +55,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.36 }}
             >
-              <a href="#quickstart" className={styles.btnPrimary}>
+              <a href={CONSOLE_URL} className={styles.btnPrimary}>
                 Get started
               </a>
               <a

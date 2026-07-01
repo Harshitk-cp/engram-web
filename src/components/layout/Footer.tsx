@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { DOCS_URL, GITHUB_URL } from "../../constants/content";
+import { LEGAL_LINKS } from "../../constants/legal";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -30,8 +32,8 @@ export default function Footer() {
             <p className={styles.tagline}>
               Provable memory infrastructure for production AI agents.
             </p>
-            <a href="mailto:tech@engram.to" className={styles.email}>
-              tech@engram.to
+            <a href="mailto:tech@hakuya.ai" className={styles.email}>
+              tech@hakuya.ai
             </a>
           </div>
 
@@ -39,11 +41,11 @@ export default function Footer() {
           <div className={styles.cols}>
             <div className={styles.col}>
               <h4>Product</h4>
-              <a href="#features">Features</a>
-              <a href="#memory-systems">Memory Systems</a>
+              <Link to="/#features">Features</Link>
+              <Link to="/#memory-systems">Memory Systems</Link>
               <a href={DOCS_URL} target="_blank" rel="noopener noreferrer">Docs</a>
-              <a href="#quickstart">Quickstart</a>
-              <a href="#contact">Contact</a>
+              <Link to="/#quickstart">Quickstart</Link>
+              <Link to="/#contact">Contact</Link>
             </div>
 
             <div className={styles.col}>
@@ -55,11 +57,10 @@ export default function Footer() {
             </div>
 
             <div className={styles.col}>
-              <h4>Research</h4>
-              <a href="#memory-systems">CoALA Framework</a>
-              <a href="#memory-systems">ACT-R Model</a>
-              <a href="#memory-systems">Mem0 Graph</a>
-              <a href="https://arxiv.org/abs/2309.02427" target="_blank" rel="noopener noreferrer">Paper</a>
+              <h4>Legal</h4>
+              {LEGAL_LINKS.map((l) => (
+                <Link key={l.to} to={l.to}>{l.label}</Link>
+              ))}
             </div>
 
           </div>
@@ -70,9 +71,11 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Engram. Released under the Apache-2.0 License.
           </span>
           <div className={styles.bottomLinks}>
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
+            <Link to="/refunds">Refunds</Link>
             <a href={`${GITHUB_URL}/blob/main/LICENSE`} target="_blank" rel="noopener noreferrer">License</a>
-            <a href={`${GITHUB_URL}`} target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="#contact">Contact</a>
+            <Link to="/#contact">Contact</Link>
           </div>
         </div>
       </div>

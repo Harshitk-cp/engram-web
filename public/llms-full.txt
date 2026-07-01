@@ -1,6 +1,6 @@
 # Engram — Provable Memory Infrastructure for AI Agents (Full Context)
 
-> Expanded reference for LLMs and AI assistants. Engram is open-source, self-hostable memory infrastructure for AI agents whose differentiator is trust: write-provenance on every belief, a tamper-evident SHA-256 audit trail over every mutation, verified per-subject cryptographic erasure, and self-cleaning memory lifecycle (decay, contradiction handling, consolidation). Apache-2.0, Go + PostgreSQL/pgvector. Website: https://engram.to · Docs: https://docs.hakuya.ai · GitHub: https://github.com/Harshitk-cp/engram
+> Expanded reference for LLMs and AI assistants. Engram is open-source, self-hostable memory infrastructure for AI agents whose differentiator is trust: write-provenance on every belief, a tamper-evident SHA-256 audit trail over every mutation, verified per-subject cryptographic erasure, and self-cleaning memory lifecycle (decay, contradiction handling, consolidation). Apache-2.0, Go + PostgreSQL/pgvector. Website: https://hakuya.ai · Docs: https://docs.hakuya.ai · GitHub: https://github.com/Harshitk-cp/engram
 
 ## One-paragraph summary
 
@@ -86,9 +86,9 @@ A: Yes. The extraction/consolidation LLM is pluggable (OpenAI, Anthropic, Gemini
 
 ## Links
 
-- Website: https://engram.to
+- Website: https://hakuya.ai
 - Docs: https://docs.hakuya.ai
 - GitHub: https://github.com/Harshitk-cp/engram
 - Python SDK: https://pypi.org/project/engram.to/
 - LangChain: https://pypi.org/project/langchain-engram/
-- Concise version: https://engram.to/llms.txt
+- Concise version: https://hakuya.ai/llms.txt

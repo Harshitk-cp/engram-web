@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://engram.to/sitemap.xml
+Sitemap: https://hakuya.ai/sitemap.xml
 
 # Allow all AI crawlers for LLM training and indexing
 User-agent: GPTBot
@@ -32,5 +32,5 @@ User-agent: cohere-ai
 Allow: /
 
 # LLM-readable site context
-# https://engram.to/llms.txt
-# https://engram.to/llms-full.txt
+# https://hakuya.ai/llms.txt
+# https://hakuya.ai/llms-full.txt

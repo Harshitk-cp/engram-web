@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { DOCS_URL, GITHUB_URL, NAV_LINKS } from "../../constants/content";
+import { Link } from "react-router-dom";
+import { CONSOLE_URL, DOCS_URL, GITHUB_URL, NAV_LINKS } from "../../constants/content";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -15,7 +16,7 @@ export default function Navbar() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`container ${styles.inner}`}>
-        <a href="#" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           <svg
             className={styles.logoIcon}
             viewBox="0 0 32 32"
@@ -37,13 +38,13 @@ export default function Navbar() {
             </defs>
           </svg>
           <span>engram</span>
-        </a>
+        </Link>
 
         <div className={styles.links}>
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className={styles.link}>
+            <Link key={link.to} to={link.to} className={styles.link}>
               {link.label}
-            </a>
+            </Link>
           ))}
           <a
             href={DOCS_URL}
@@ -67,7 +68,7 @@ export default function Navbar() {
             </svg>
             <span>GitHub</span>
           </a>
-          <a href="#quickstart" className={styles.cta}>
+          <a href={CONSOLE_URL} className={styles.cta}>
             Get Started
           </a>
         </div>
@@ -84,14 +85,14 @@ export default function Navbar() {
       {mobileOpen && (
         <div className={styles.mobileMenu}>
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+            <Link
+              key={link.to}
+              to={link.to}
               className={styles.mobileLink}
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <a
             href={DOCS_URL}

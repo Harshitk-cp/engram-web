@@ -1,0 +1,4 @@
+# SPA fallback: serve index.html for client-side routes (e.g. /privacy, /terms)
+# so direct loads and refreshes resolve. Used by Netlify / Cloudflare Pages.
+# Other hosts need an equivalent rewrite (see notes below).
+/*    /index.html   200

@@ -67,8 +67,8 @@ export default function Contact() {
               custom deployment? Reach out and we'll respond within one
               business day.
             </p>
-            <a href="mailto:tech@engram.to" className={styles.directEmail}>
-              tech@engram.to
+            <a href="mailto:tech@hakuya.ai" className={styles.directEmail}>
+              tech@hakuya.ai
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path
                   d="M2.5 7h9m0 0L8 3.5M11.5 7L8 10.5"
@@ -177,7 +177,7 @@ export default function Contact() {
                 {status === "error" && (
                   <p className={styles.errorMsg}>
                     Something went wrong. Email us directly at{" "}
-                    <a href="mailto:tech@engram.to">tech@engram.to</a>.
+                    <a href="mailto:tech@hakuya.ai">tech@hakuya.ai</a>.
                   </p>
                 )}
 

@@ -2,14 +2,18 @@ export const GITHUB_URL = "https://github.com/Harshitk-cp/engram";
 
 export const DOCS_URL = "https://docs.hakuya.ai";
 
+export const CONSOLE_URL = "https://console.hakuya.ai";
+
+// `to` is route-prefixed ("/#features") so these work from any page, not just
+// the landing page. App's scroll handler scrolls to the section after routing.
 export const NAV_LINKS = [
-  { label: "Trust", href: "#trust" },
-  { label: "Features", href: "#features" },
-  { label: "Memory Systems", href: "#memory-systems" },
-  { label: "Benchmarks", href: "#benchmarks" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Quickstart", href: "#quickstart" },
-  { label: "Contact", href: "#contact" },
+  { label: "Trust", to: "/#trust" },
+  { label: "Features", to: "/#features" },
+  { label: "Memory Systems", to: "/#memory-systems" },
+  { label: "Benchmarks", to: "/#benchmarks" },
+  { label: "Pricing", to: "/#pricing" },
+  { label: "Quickstart", to: "/#quickstart" },
+  { label: "Contact", to: "/#contact" },
 ] as const;
 
 export const METRICS = [

@@ -71,9 +71,9 @@ Not for: simple key-value storage, standalone vector-database needs, or single-t
 
 ## Links
 
-- Website: https://engram.to
+- Website: https://hakuya.ai
 - Docs: https://docs.hakuya.ai
 - GitHub: https://github.com/Harshitk-cp/engram (Apache-2.0)
 - Python SDK: https://pypi.org/project/engram.to/
 - LangChain integration: https://pypi.org/project/langchain-engram/
-- Expanded context for LLMs: https://engram.to/llms-full.txt
+- Expanded context for LLMs: https://hakuya.ai/llms-full.txt

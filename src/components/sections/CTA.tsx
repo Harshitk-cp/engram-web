@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { GITHUB_URL } from "../../constants/content";
 import styles from "./CTA.module.css";
 
@@ -32,9 +33,9 @@ export default function CTA() {
               </svg>
               Star on GitHub
             </a>
-            <a href="#quickstart" className={styles.btnSecondary}>
+            <Link to="/#quickstart" className={styles.btnSecondary}>
               Read the Quickstart
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

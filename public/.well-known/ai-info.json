@@ -1,7 +1,7 @@
 {
   "name": "Engram",
   "description": "Open-source cognitive memory infrastructure for AI agents. Persistent memory with semantic, episodic, procedural, and working memory systems. Confidence-based tiering, belief dynamics, hybrid vector + graph retrieval.",
-  "url": "https://engram.to",
+  "url": "https://hakuya.ai",
   "repository": "https://github.com/Harshitk-cp/engram",
   "license": "MIT",
   "category": "AI Infrastructure / Agent Memory",
@@ -25,7 +25,7 @@
     "CoALA",
     "Mem0 alternative"
   ],
-  "llms_txt": "https://engram.to/llms.txt",
+  "llms_txt": "https://hakuya.ai/llms.txt",
   "features": {
     "memory_systems": ["semantic", "episodic", "procedural", "working"],
     "retrieval": "hybrid vector + graph",

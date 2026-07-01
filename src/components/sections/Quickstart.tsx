@@ -188,8 +188,58 @@ const langchainSteps = [
   },
 ];
 
+const mcpSteps = [
+  {
+    num: 1,
+    title: "Connect your agent — no install",
+    label: "terminal",
+    code: (
+      <>
+        <span className={styles.comment}># Point any MCP client at Engram with just your API key</span>
+        {"\n"}claude mcp add --transport http engram \{"\n"}
+        {"  "}https://console.hakuya.ai/mcp \{"\n"}
+        {"  "}--header <span className={styles.string}>"Authorization: Bearer mk_..."</span>
+      </>
+    ),
+  },
+  {
+    num: 2,
+    title: "Self-hosting? Point at your own server",
+    label: "terminal",
+    code: (
+      <>
+        <span className={styles.comment}># Every Engram server exposes a built-in /mcp endpoint</span>
+        {"\n"}claude mcp add --transport http engram \{"\n"}
+        {"  "}https://your-engram-host/mcp \{"\n"}
+        {"  "}--header <span className={styles.string}>"Authorization: Bearer mk_..."</span>
+      </>
+    ),
+  },
+  {
+    num: 3,
+    title: "Your agent now has memory",
+    label: "claude",
+    code: (
+      <>
+        <span className={styles.comment}># 37 memory tools appear in Claude, Cursor, Windsurf…</span>
+        {"\n"}
+        <span className={styles.comment}># remember · recall · recall_graph · get_hot_context · …</span>
+        {"\n\n"}
+        <span className={styles.string}>"Remember that I prefer dark mode"</span>
+        {"\n"}
+        <span className={styles.comment}># → stored, typed, confidence-scored</span>
+        {"\n\n"}
+        <span className={styles.string}>"What are my display preferences?"</span>
+        {"\n"}
+        <span className={styles.comment}># → recalled across sessions, not RAM</span>
+      </>
+    ),
+  },
+];
+
 const TABS = [
   { id: "python", label: "Python SDK" },
+  { id: "mcp", label: "MCP" },
   { id: "langchain", label: "LangChain" },
   { id: "rest", label: "REST API" },
 ] as const;
@@ -201,6 +251,8 @@ export default function Quickstart() {
   const steps =
     activeTab === "python"
       ? pythonSteps
+      : activeTab === "mcp"
+      ? mcpSteps
       : activeTab === "langchain"
       ? langchainSteps
       : restSteps;
