@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GITHUB_URL } from "../../constants/content";
+import { GITHUB_URL, CONSOLE_URL } from "../../constants/content";
 import styles from "./Pricing.module.css";
 
 const tiers = [
@@ -7,7 +7,6 @@ const tiers = [
     name: "Self-Hosted",
     price: "Free",
     priceSub: "forever",
-    status: "available" as const,
     description: "Full capabilities on your own infrastructure. Deploy with Docker Compose and own your data completely.",
     cta: { label: "View on GitHub", href: GITHUB_URL, external: true },
     features: [
@@ -30,9 +29,8 @@ const tiers = [
     name: "Developer",
     price: "$29",
     priceSub: "per month",
-    status: "soon" as const,
     description: "Managed Postgres and pgvector so you ship features, not maintain databases.",
-    cta: { label: "Join waitlist", href: "#contact", external: false },
+    cta: { label: "Get started", href: `${CONSOLE_URL}/signup?plan=developer`, external: false },
     features: [
       "Everything in Self-Hosted",
       "Managed Postgres + pgvector",
@@ -47,10 +45,9 @@ const tiers = [
     name: "Team",
     price: "$149",
     priceSub: "per month",
-    status: "soon" as const,
     highlighted: true,
     description: "Production-grade reliability for teams running agents with real users and uptime requirements.",
-    cta: { label: "Join waitlist", href: "#contact", external: false },
+    cta: { label: "Get started", href: `${CONSOLE_URL}/signup?plan=team`, external: false },
     features: [
       "Everything in Developer",
       "10 workspaces",
@@ -65,7 +62,6 @@ const tiers = [
     name: "Enterprise",
     price: "Custom",
     priceSub: "contact us",
-    status: "available" as const,
     description: "Private deployments, compliance packages, and contracts tailored to your organization.",
     cta: { label: "Contact sales", href: "#contact", external: false },
     features: [
@@ -96,8 +92,8 @@ export default function Pricing() {
           <p className={styles.tag}>Pricing</p>
           <h2 className={styles.heading}>Simple, predictable pricing</h2>
           <p className={styles.sub}>
-            Self-host for free under Apache-2.0. Managed cloud is in development —
-            join the waitlist to be notified at launch.
+            Self-host for free under Apache-2.0, or let us run it for you. Pick a
+            managed plan and start in minutes — cancel anytime.
           </p>
         </div>
 
@@ -118,9 +114,6 @@ export default function Pricing() {
               <div className={styles.cardHead}>
                 <div className={styles.nameRow}>
                   <span className={styles.tierName}>{tier.name}</span>
-                  {tier.status === "soon" && (
-                    <span className={styles.soonBadge}>Coming soon</span>
-                  )}
                 </div>
                 <div className={styles.priceRow}>
                   <span className={styles.price}>{tier.price}</span>

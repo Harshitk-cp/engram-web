@@ -2,7 +2,7 @@ export const GITHUB_URL = "https://github.com/Harshitk-cp/engram";
 
 export const DOCS_URL = "https://docs.hakuya.ai";
 
-export const CONSOLE_URL = "https://console.hakuya.ai";
+export const CONSOLE_URL = import.meta.env.VITE_CONSOLE_URL ?? "https://console.hakuya.ai";
 
 // `to` is route-prefixed ("/#features") so these work from any page, not just
 // the landing page. App's scroll handler scrolls to the section after routing.
