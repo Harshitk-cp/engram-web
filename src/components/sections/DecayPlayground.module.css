@@ -148,16 +148,171 @@
   text-transform: uppercase;
 }
 
-.curve {
+/* evidence line — steady, prominent (the belief's strength) */
+.evCurve {
   stroke: #818cf8;
-  stroke-width: 2;
+  stroke-width: 2.25;
   stroke-linejoin: round;
   filter: drop-shadow(0 0 6px rgba(129, 140, 248, 0.45));
 }
 
-.tip {
+/* freshness line — the one that decays toward the stale threshold */
+.freshCurve {
+  stroke: #22d3ee;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.35));
+}
+
+.evTip {
   fill: #c4b5fd;
   filter: drop-shadow(0 0 5px rgba(167, 139, 250, 0.9));
+}
+
+.frTip {
+  fill: #67e8f9;
+  filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.9));
+}
+
+.steady {
+  color: var(--text-muted);
+}
+
+/* ── axes legend / live readout ── */
+.readout {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legendItem strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.swEv {
+  background: #818cf8;
+  box-shadow: 0 0 6px rgba(129, 140, 248, 0.6);
+}
+
+.swFr {
+  background: #22d3ee;
+  box-shadow: 0 0 6px rgba(34, 211, 238, 0.6);
+}
+
+.memShredded {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: #fda4af;
+  opacity: 0.85;
+}
+
+/* ── tamper-evident audit chain ── */
+.audit {
+  margin-bottom: 13px;
+}
+
+.auditHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.auditTitle {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.verified {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--success);
+  white-space: nowrap;
+}
+
+.chainRow {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 24px;
+}
+
+.block {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 3px 7px;
+  border-radius: 5px;
+  border: 1px solid var(--border-card);
+  border-left-width: 3px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  animation: blockIn 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.block:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 50%;
+  width: 11px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+@keyframes blockIn {
+  from {
+    opacity: 0;
+    transform: translateX(7px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ev_written {
+  border-left-color: #818cf8;
+}
+.ev_reinforced {
+  border-left-color: var(--success);
+}
+.ev_contradicted {
+  border-left-color: #fb7185;
+}
+.ev_flagged {
+  border-left-color: #fbbf24;
+}
+.ev_reverified {
+  border-left-color: #22d3ee;
+}
+.ev_erased {
+  border-left-color: #f43f5e;
+  color: #fda4af;
+  background: rgba(244, 63, 94, 0.08);
 }
 
 /* ── footer ── */
@@ -216,6 +371,43 @@
 }
 
 .btnContradict:active {
+  transform: scale(0.96);
+}
+
+.btnForget {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 7px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  color: var(--text-muted);
+  transition: transform 0.12s, color 0.15s, border-color 0.15s;
+}
+
+.btnForget:hover {
+  color: #fda4af;
+  border-color: rgba(244, 63, 94, 0.5);
+}
+
+.btnForget:active {
+  transform: scale(0.96);
+}
+
+.btnReset {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  transition: transform 0.12s, opacity 0.15s;
+}
+
+.btnReset:hover {
+  opacity: 0.88;
+}
+
+.btnReset:active {
   transform: scale(0.96);
 }
 
