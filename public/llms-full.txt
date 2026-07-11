@@ -54,7 +54,7 @@ Per task: knowledge update 100% (72/72), abstention 100% (30/30), single-session
 - Auth: Bearer API keys (scoped), per-tenant isolation; console with OAuth (Google/GitHub) and WorkOS SSO.
 - Python SDK: `pip install engram.to` — sync + async clients, Pydantic v2 models.
 - LangChain: `pip install langchain-engram` — EngramRetriever.
-- MCP server (stdio for Claude Desktop/Claude Code; SSE and streamable HTTP transports): tools `remember`, `recall`, `recall_graph`, `forget`, `get_hot_context`, `list_agents`.
+- MCP server — built-in streamable-HTTP `/mcp` endpoint (connect any client with one `claude mcp add --transport http` command, no local binary or config file; stdio and SSE transports also available) for Claude Code, Claude Desktop, Cursor, Windsurf: tools `remember`, `recall`, `recall_graph`, `forget`, `get_hot_context`, `list_agents`.
 - Self-host: single Go binary or Docker Compose (`docker compose up -d`); only dependency is PostgreSQL with pgvector. LLM providers pluggable: OpenAI, Anthropic, Gemini, Cerebras (embeddings: OpenAI).
 - Managed cloud: Developer $29/mo and Team $149/mo tiers (waitlist); self-hosted is free forever under Apache-2.0.
 

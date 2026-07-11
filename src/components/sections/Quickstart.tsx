@@ -195,9 +195,9 @@ const mcpSteps = [
     label: "terminal",
     code: (
       <>
-        <span className={styles.comment}># Point any MCP client at Engram with just your API key</span>
+        <span className={styles.comment}># Point any MCP client at Engram — no install, no config file</span>
         {"\n"}claude mcp add --transport http engram \{"\n"}
-        {"  "}https://console.hakuya.ai/mcp \{"\n"}
+        {"  "}<span className={styles.string}>"https://console.hakuya.ai/mcp?agent_id=your-agent-id"</span> \{"\n"}
         {"  "}--header <span className={styles.string}>"Authorization: Bearer mk_..."</span>
       </>
     ),
@@ -210,7 +210,7 @@ const mcpSteps = [
       <>
         <span className={styles.comment}># Every Engram server exposes a built-in /mcp endpoint</span>
         {"\n"}claude mcp add --transport http engram \{"\n"}
-        {"  "}https://your-engram-host/mcp \{"\n"}
+        {"  "}<span className={styles.string}>"https://your-engram-host/mcp?agent_id=your-agent-id"</span> \{"\n"}
         {"  "}--header <span className={styles.string}>"Authorization: Bearer mk_..."</span>
       </>
     ),
