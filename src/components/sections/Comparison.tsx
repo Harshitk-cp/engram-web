@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 import SectionHeader from "../ui/SectionHeader";
 import styles from "./Comparison.module.css";
@@ -191,8 +192,8 @@ export default function Comparison() {
       <div className="container">
         <SectionHeader
           tag="Comparison"
-          title="Where others stop, Engram starts"
-          description="Mem0 and Zep solve retrieval. Engram solves trust — provenance on every belief, a tamper-evident audit trail, and verified erasure no other memory layer ships."
+          title="Where others stop, Hakuya starts"
+          description="Mem0 and Zep solve retrieval. Hakuya solves trust — provenance on every belief, a tamper-evident audit trail, and verified erasure no other memory layer ships."
         />
         <motion.div
           className={styles.tableWrap}
@@ -207,13 +208,13 @@ export default function Comparison() {
                 <th className={styles.featureCol}>Capability</th>
                 <th>Mem0</th>
                 <th>Zep</th>
-                <th className={styles.engramCol}>Engram</th>
+                <th className={styles.engramCol}>Hakuya</th>
               </tr>
             </thead>
             <tbody>
               {groups.map((group) => (
-                <>
-                  <tr key={group.category} className={styles.groupRow}>
+                <Fragment key={group.category}>
+                  <tr className={styles.groupRow}>
                     <td colSpan={4} className={styles.groupLabel}>{group.category}</td>
                   </tr>
                   {group.rows.map((row) => (
@@ -227,7 +228,7 @@ export default function Comparison() {
                       <td className={styles.engramCol}><Cell val={row.engram} /></td>
                     </tr>
                   ))}
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>

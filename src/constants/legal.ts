@@ -6,7 +6,7 @@
 
 export const LEGAL = {
   /** Product / service name (the core product). */
-  brand: "Engram",
+  brand: "Hakuya",
   /** Brand / trade name and the name we refer to ourselves by in the docs. */
   company: "hakuya.ai",
   /** Full registered company name (a private limited company). */

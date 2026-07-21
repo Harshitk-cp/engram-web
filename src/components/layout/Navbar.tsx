@@ -37,7 +37,7 @@ export default function Navbar() {
               </linearGradient>
             </defs>
           </svg>
-          <span>engram</span>
+          <span>hakuya</span>
         </Link>
 
         <div className={styles.links}>

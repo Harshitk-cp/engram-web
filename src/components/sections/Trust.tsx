@@ -55,7 +55,7 @@ export default function Trust() {
         <SectionHeader
           tag="Trust & Governance"
           title="Memory you can <span>prove</span>"
-          description="Every other memory layer asks you to trust it. Engram lets you verify — provenance on every belief, a tamper-evident audit trail, cryptographic erasure, and memory that cleans itself. The controls regulated teams and production agents now require, shipped today."
+          description="Every other memory layer asks you to trust it. Hakuya lets you verify — provenance on every belief, a tamper-evident audit trail, cryptographic erasure, and memory that cleans itself. The controls regulated teams and production agents now require, shipped today."
         />
 
         <div className={styles.grid}>

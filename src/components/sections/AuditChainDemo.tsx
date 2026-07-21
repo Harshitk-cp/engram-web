@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import styles from "./AuditChainDemo.module.css";
 
 /**
- * A live, tamperable SHA-256 hash chain — the same construction Engram
+ * A live, tamperable SHA-256 hash chain — the same construction Hakuya
  * writes for every memory mutation. All hashes are computed in the
  * visitor's browser with Web Crypto. Edit a record, watch the chain break,
  * run verification, watch it get caught.
@@ -19,7 +19,7 @@ const PRISTINE: Record_[] = [
   { seq: 1, type: "created", content: 'memory "Prefers TypeScript" · conf 0.90' },
   { seq: 2, type: "reinforced", content: "conf 0.90 → 0.94 · used in reply" },
   { seq: 3, type: "contradicted", content: '"now prefers Go" · conf 0.94 → 0.61' },
-  { seq: 4, type: "decayed", content: "conf 0.61 → 0.48 · 31 days unused" },
+  { seq: 4, type: "reviewed", content: "contradiction resolved · prior belief superseded" },
   { seq: 5, type: "redacted", content: "GDPR erasure · subject anchor purged" },
 ];
 
@@ -234,7 +234,7 @@ export default function AuditChainDemo() {
           </div>
           <p className={styles.sub}>
             This is a real SHA-256 hash chain, computed in your browser — the same
-            construction Engram seals around every memory mutation.{" "}
+            construction Hakuya seals around every memory mutation.{" "}
             <strong>Click any record and change it.</strong> Then run verification.
           </p>
         </div>

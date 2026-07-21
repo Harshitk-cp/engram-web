@@ -95,10 +95,10 @@ export function ProblemScenario({ onDone }: { onDone: () => void }) {
 
       {/* Two panels */}
       <div className={styles.panels}>
-        {/* ── Without Engram ── */}
+        {/* ── Without Hakuya ── */}
         <div className={styles.panel}>
           <div className={styles.panelHead}>
-            <span className={styles.panelLabel}>Without Engram</span>
+            <span className={styles.panelLabel}>Without Hakuya</span>
             <div className={styles.confRow}>
               <span className={styles.confKey}>Confidence</span>
               <span className={`${styles.confVal} ${styles.confHigh}`}>1.00</span>
@@ -128,11 +128,11 @@ export function ProblemScenario({ onDone }: { onDone: () => void }) {
           )}
         </div>
 
-        {/* ── With Engram ── */}
+        {/* ── With Hakuya ── */}
         <div className={`${styles.panel} ${styles.panelAccent}`}>
           <div className={styles.panelHead}>
             <span className={`${styles.panelLabel} ${styles.panelLabelAccent}`}>
-              With Engram
+              With Hakuya
             </span>
             <div className={styles.confRow}>
               <span className={styles.confKey}>Confidence</span>

@@ -1,21 +1,38 @@
 import type { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LEGAL, LEGAL_LINKS } from "../../constants/legal";
+import Seo from "../Seo";
 import styles from "./LegalLayout.module.css";
 
 interface LegalLayoutProps {
   title: string;
   /** Short sentence shown under the title. */
   intro?: string;
+  /** Meta description for search engines. Falls back to the intro. */
+  description?: string;
   children: ReactNode;
 }
 
 // Shared shell for the legal pages: breadcrumb, title, "last updated" line,
 // readable prose column, and cross-links to the other legal documents.
-export default function LegalLayout({ title, intro, children }: LegalLayoutProps) {
+export default function LegalLayout({
+  title,
+  intro,
+  description,
+  children,
+}: LegalLayoutProps) {
   const { pathname } = useLocation();
   return (
     <section className={styles.section}>
+      <Seo
+        title={`${title} — ${LEGAL.brand}`}
+        description={
+          description ??
+          intro ??
+          `${title} for ${LEGAL.brand}, provable memory infrastructure for AI agents.`
+        }
+        path={pathname}
+      />
       <div className="container">
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link to="/">Home</Link>

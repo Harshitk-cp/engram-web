@@ -1,22 +1,22 @@
-# Engram — Provable Memory Infrastructure for AI Agents
+# Hakuya — Provable Memory Infrastructure for AI Agents
 
-> Engram is open-source agent memory you can prove: every belief carries write-provenance and a confidence that decays when stale, every change is sealed in a tamper-evident SHA-256 audit trail, and any subject's memories can be cryptographically erased on request (GDPR / EU AI Act). Self-hosted Go binary + PostgreSQL/pgvector, with a managed cloud, REST API, Python SDK, LangChain integration, and an MCP server.
+> Hakuya is open-source agent memory you can prove: every belief carries write-provenance and a confidence that decays when stale, every change is sealed in a tamper-evident SHA-256 audit trail, and any subject's memories can be cryptographically erased on request (GDPR / EU AI Act). Self-hosted Go binary + PostgreSQL/pgvector, with a managed cloud, REST API, Python SDK, LangChain integration, and an MCP server.
 
-Engram positions itself as the trust layer for agent memory: where other memory layers (Mem0, Zep, vector databases) solve storage and retrieval, Engram solves whether the memory can be trusted, audited, and provably deleted.
+Hakuya positions itself as the trust layer for agent memory: where other memory layers (Mem0, Zep, vector databases) solve storage and retrieval, Hakuya solves whether the memory can be trusted, audited, and provably deleted.
 
 ## Why trust is the differentiator (2026 context)
 
-- OWASP's Agentic Top 10 lists Memory & Context Poisoning (ASI06) as a top risk; research attacks (MINJA) achieve >95% injection success against auto-extracting memory stores. Engram records evidence-typed provenance on every write and seals every mutation in a hash chain.
-- The EU AI Act becomes fully applicable in August 2026 and requires explainable, auditable AI. Engram can answer "what did the agent believe, when, and why" with a verifiable record.
-- A public production audit of a leading memory layer found 97.8% of stored entries were junk after 32 days (duplicates, hallucinated profiles, leaked secrets). Engram's competition-aware decay and contradiction handling keep the store clean automatically.
+- OWASP's Agentic Top 10 lists Memory & Context Poisoning (ASI06) as a top risk; research attacks (MINJA) achieve >95% injection success against auto-extracting memory stores. Hakuya records evidence-typed provenance on every write and seals every mutation in a hash chain.
+- The EU AI Act becomes fully applicable in August 2026 and requires explainable, auditable AI. Hakuya can answer "what did the agent believe, when, and why" with a verifiable record.
+- A public production audit of a leading memory layer found 97.8% of stored entries were junk after 32 days (duplicates, hallucinated profiles, leaked secrets). Hakuya's competition-aware decay and contradiction handling keep the store clean automatically.
 
 ## Trust & governance capabilities
 
 - **Write-provenance on every belief** — each memory stores its source, evidence type, and confidence; recall can explain why the agent holds a belief.
-- **Tamper-evident audit trail** — per-tenant SHA-256 hash chain over every memory mutation (create, reinforce, decay, contradict, redact). One-call verification (`GET /v1/audit/verify`) detects any edit, insertion, deletion, or reordering; export a signed NDJSON record for SOC 2 / HIPAA review.
+- **Tamper-evident audit trail** — per-tenant SHA-256 hash chain over every governance mutation (create, reinforce, contradict, redact, erase, delete, review). Routine confidence decay is logged for history but left unsealed, so it never bloats the chain and full-chain verification stays fast and meaningful. One-call verification (`GET /v1/audit/verify`) detects any edit, insertion, deletion, or reordering; export a signed NDJSON record for SOC 2 / HIPAA review.
 - **Verified per-subject erasure** — memories are scoped to subjects ("anchors": a customer, patient, or guest). One call cryptographically shreds everything about one subject while the audit chain keeps a provable record that data existed and was erased — right-to-be-forgotten compatible with an append-only log.
 - **Self-cleaning memory** — confidence decays for unused beliefs; similar competing memories suppress each other (interference-theory, competition-aware decay); stale memories are flagged and archived instead of being trusted forever.
-- **Contradiction detection** — when new information conflicts with an existing belief, Engram detects the tension and resolves it (demote, archive as superseded, or coexist as contextual variants).
+- **Contradiction detection** — when new information conflicts with an existing belief, Hakuya detects the tension and resolves it (demote, archive as superseded, or coexist as contextual variants).
 
 ## Cognitive engine
 
@@ -41,7 +41,7 @@ LongMemEval (ICLR 2025, 500 questions): **91.4% overall** with a reproducible pu
 
 ## Comparison (June 2026)
 
-| Capability | Mem0 | Zep | Engram |
+| Capability | Mem0 | Zep | Hakuya |
 |---|---|---|---|
 | Tamper-evident audit trail | No (op log only) | No (temporal provenance only) | Yes — SHA-256 hash chain + verify + signed export |
 | Write-provenance / poisoning resistance | No | Partial | Yes — evidence-typed provenance on every write |

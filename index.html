@@ -4,42 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>Engram — Provable Agent Memory | Open Source</title>
-    <meta name="title" content="Engram — Provable Agent Memory | Open Source" />
-    <meta name="description" content="Engram is open-source agent memory you can prove: write-provenance on every belief, a tamper-evident SHA-256 audit trail, verified per-subject erasure (GDPR / EU AI Act), and self-cleaning memory decay. The trust layer for production AI agents." />
+    <!--
+      Per-page title, description, canonical, robots, and Open Graph / Twitter
+      tags are managed per-route by src/components/Seo.tsx (react-helmet-async
+      via vite-react-ssg) and baked into each page's static HTML at build time.
+      Only site-wide, structural tags live here.
+    -->
+    <meta name="author" content="Hakuya" />
     <meta name="keywords" content="provable agent memory, auditable AI memory, tamper-evident audit trail, memory provenance, agent memory poisoning defense, OWASP ASI06, verified erasure, GDPR right to be forgotten AI, EU AI Act memory, AI agent memory, persistent memory for AI, cognitive memory infrastructure, LLM memory, AI agent long-term memory, semantic memory AI, episodic memory AI, procedural memory AI, working memory AI, vector database AI agents, knowledge graph AI, belief dynamics, memory decay, multi-subject memory isolation, multi-agent memory, agent memory API, Mem0 alternative, Zep alternative, open source AI memory, self-hosted AI memory, hybrid retrieval AI, pgvector, Go AI backend" />
-    <meta name="author" content="Engram" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://hakuya.ai" />
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM-readable site summary" />
     <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="LLM-readable full context" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hakuya.ai" />
-    <meta property="og:title" content="Engram — Provable Agent Memory" />
-    <meta property="og:description" content="Open-source agent memory you can prove: write-provenance, a tamper-evident audit trail, verified per-subject erasure, and self-cleaning decay. The trust layer for production AI agents." />
-    <meta property="og:site_name" content="Engram" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://hakuya.ai" />
-    <meta name="twitter:title" content="Engram — Provable Agent Memory" />
-    <meta name="twitter:description" content="Open-source agent memory you can prove: write-provenance, a tamper-evident audit trail, verified per-subject erasure, and self-cleaning decay. The trust layer for production AI agents." />
-
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Engram",
+      "name": "Hakuya",
+      "sameAs": [
+        "https://github.com/Harshitk-cp/engram",
+        "https://hakuya.ai"
+      ],
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Linux, macOS, Windows (Docker)",
-      "description": "Engram is open-source provable memory infrastructure for AI agents. Every belief carries write-provenance and confidence, changes are recorded in a tamper-evident SHA-256 audit trail, any subject can be cryptographically erased (GDPR / EU AI Act), and stale memories decay on their own. It also provides four memory systems (semantic, episodic, procedural, working), belief dynamics, and hybrid vector + graph retrieval. Built in Go with PostgreSQL and pgvector.",
+      "description": "Hakuya is open-source provable memory infrastructure for AI agents. Every belief carries write-provenance and confidence, changes are recorded in a tamper-evident SHA-256 audit trail, any subject can be cryptographically erased (GDPR / EU AI Act), and stale memories decay on their own. It also provides four memory systems (semantic, episodic, procedural, working), belief dynamics, and hybrid vector + graph retrieval. Built in Go with PostgreSQL and pgvector.",
       "url": "https://hakuya.ai",
       "downloadUrl": "https://github.com/Harshitk-cp/engram",
       "softwareVersion": "0.x",
@@ -76,7 +67,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Engram",
+      "name": "Hakuya",
       "url": "https://hakuya.ai",
       "description": "Provable memory infrastructure for AI agents — write-provenance, tamper-evident audit trail, verified erasure, self-cleaning decay",
       "potentialAction": {
@@ -84,54 +75,6 @@
         "target": "https://github.com/Harshitk-cp/engram/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is Engram?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Engram is open-source provable memory infrastructure for AI agents. Every belief carries write-provenance and a confidence that decays when stale, every change is sealed in a tamper-evident SHA-256 audit trail, and any subject's memories can be cryptographically erased on request (GDPR / EU AI Act). It provides persistent, typed memory (semantic, episodic, procedural, working) via an HTTP API, Python SDK, and MCP server."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How is Engram different from Mem0, Zep, or a vector database?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mem0, Zep, and vector databases solve storage and retrieval. Engram solves trust: it is the only agent-memory layer with a tamper-evident audit trail (per-tenant SHA-256 hash chain, one-call verification, signed export), write-provenance on every belief, verified per-subject erasure, and self-cleaning memory decay — on top of four cognitive memory types, belief dynamics, and hybrid vector + graph retrieval."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does Engram handle GDPR right-to-be-forgotten and EU AI Act auditability?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Memories about one subject (a customer, patient, or guest) are isolated under an anchor. Purging the anchor cryptographically shreds everything about that subject while the append-only audit chain keeps a provable record that the data existed and was erased. The same audit trail answers 'what did the agent believe, when, and why' for EU AI Act explainability."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What memory systems does Engram support?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Engram supports four memory systems: Semantic memory (facts, beliefs, preferences), Episodic memory (rich interaction experiences with context), Procedural memory (learned skills and trigger-action patterns), and Working memory (active context and current goals with 7-slot capacity)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Engram open source and self-hosted?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, Engram is fully open source under the Apache-2.0 license. It is designed for self-hosting and deploys with a single Docker Compose command. Built in Go with PostgreSQL and pgvector, it has zero external runtime dependencies beyond the database."
-          }
-        }
-      ]
     }
     </script>
   </head>
@@ -142,15 +85,15 @@
     <!-- SEO fallback for crawlers that don't execute JavaScript -->
     <noscript>
       <article>
-        <h1>Engram — Provable Memory Infrastructure for AI Agents</h1>
-        <p>Engram is open-source agent memory you can prove. Every other memory layer asks you to trust a black box: Engram records where each belief came from, lets it decay when it goes stale, can erase any subject on request, and writes every change to a tamper-evident audit trail — so you can prove what your agent knows, and why.</p>
+        <h1>Hakuya — Provable Memory Infrastructure for AI Agents</h1>
+        <p>Hakuya is open-source agent memory you can prove. Every other memory layer asks you to trust a black box: Hakuya records where each belief came from, lets it decay when it goes stale, can erase any subject on request, and writes every change to a tamper-evident audit trail — so you can prove what your agent knows, and why.</p>
 
         <h2>Trust &amp; Governance</h2>
         <ul>
           <li><strong>Write-Provenance on Every Belief</strong> — Each memory carries its source, evidence type, and confidence, so you can always answer why the agent holds a belief.</li>
-          <li><strong>Tamper-Evident Audit Trail</strong> — Every change (created, reinforced, decayed, contradicted, redacted) is appended to a per-tenant SHA-256 hash-chained log. Verify the whole chain in one call; export a signed record for SOC 2 / HIPAA review.</li>
+          <li><strong>Tamper-Evident Audit Trail</strong> — Every change (created, reinforced, contradicted, redacted, erased) is appended to a per-tenant SHA-256 hash-chained log. Verify the whole chain in one call; export a signed record for SOC 2 / HIPAA review.</li>
           <li><strong>Verified Per-Subject Erasure</strong> — Cryptographically shred everything about one customer, patient, or guest while keeping a provable record of the erasure. Built for GDPR Article 17 and the EU AI Act.</li>
-          <li><strong>Self-Cleaning Memory</strong> — Stale beliefs lose confidence; redundant ones suppress each other through competition-aware decay. Other stores accumulate junk; Engram's memory stays clean on its own.</li>
+          <li><strong>Self-Cleaning Memory</strong> — Stale beliefs lose confidence; redundant ones suppress each other through competition-aware decay. Other stores accumulate junk; Hakuya's memory stays clean on its own.</li>
         </ul>
 
         <h2>The Cognitive Engine Underneath</h2>
@@ -166,9 +109,9 @@
         <h2>Benchmark</h2>
         <p>LongMemEval (ICLR 2025): 91.4% overall accuracy with a reproducible public harness — knowledge update 100%, abstention 100%, multi-session 90.2%, temporal reasoning 82.3%.</p>
 
-        <h2>Who Is Engram For?</h2>
+        <h2>Who Is Hakuya For?</h2>
         <ul>
-          <li><strong>AI Agent Developers</strong> — Production agents whose mistakes cost money.</li>
+          <li><strong>Agent &amp; Copilot Builders</strong> — Anyone building AI agents, assistants, or copilots — in code or on an agentic / no-code platform — whose mistakes cost money.</li>
           <li><strong>Regulated Industries</strong> — Health, finance, and legal teams that need auditable agent memory.</li>
           <li><strong>Multi-Subject B2B</strong> — One support, clinical, or concierge agent serving thousands of isolated end-users.</li>
           <li><strong>LLM App Builders</strong> — Persistent, trustworthy user context beyond a single session.</li>
@@ -178,7 +121,7 @@
         <p>REST API, Python SDK (pip install engram.to), LangChain integration (pip install langchain-engram), and an MCP server for Claude Desktop, Claude Code, Cursor, and Windsurf. Built with Go (single binary), PostgreSQL, pgvector, and Docker — self-hosted with one command.</p>
 
         <h2>Open Source</h2>
-        <p>Engram is fully open source under the Apache-2.0 License. <a href="https://github.com/Harshitk-cp/engram">View on GitHub</a>. LLM-readable context: <a href="https://hakuya.ai/llms.txt">llms.txt</a> and <a href="https://hakuya.ai/llms-full.txt">llms-full.txt</a>.</p>
+        <p>Hakuya is fully open source under the Apache-2.0 License. <a href="https://github.com/Harshitk-cp/engram">View on GitHub</a>. LLM-readable context: <a href="https://hakuya.ai/llms.txt">llms.txt</a> and <a href="https://hakuya.ai/llms-full.txt">llms-full.txt</a>.</p>
       </article>
     </noscript>
   </body>

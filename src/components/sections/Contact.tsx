@@ -31,7 +31,7 @@ export default function Contact() {
           access_key: ACCESS_KEY,
           from_name: values.name,
           replyto: values.email,
-          subject: values.subject ? `[Engram] ${values.subject}` : "[Engram] New contact",
+          subject: values.subject ? `[Hakuya] ${values.subject}` : "[Hakuya] New contact",
           name: values.name,
           email: values.email,
           message: values.message,
@@ -63,7 +63,7 @@ export default function Contact() {
             <p className={styles.tag}>Contact</p>
             <h2 className={styles.heading}>Talk to the team</h2>
             <p className={styles.body}>
-              Questions about integrating Engram, enterprise pricing, or a
+              Questions about integrating Hakuya, enterprise pricing, or a
               custom deployment? Reach out and we'll respond within one
               business day.
             </p>

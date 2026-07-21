@@ -33,8 +33,8 @@ export default function ForYou() {
       <div className="container">
         <SectionHeader
           tag="Use Cases"
-          title="Is Engram right for you?"
-          description="If your agents need to remember, learn, or improve — yes."
+          title="Is Hakuya right for you?"
+          description="Whether you write the code yourself or build on agentic and no-code platforms — if your agents need to remember, learn, or improve, the answer is yes."
         />
 
         <div className={styles.grid}>

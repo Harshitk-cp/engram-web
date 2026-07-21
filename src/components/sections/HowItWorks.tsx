@@ -7,7 +7,7 @@ export default function HowItWorks() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <SectionHeader tag="Architecture" title="How Engram works" />
+        <SectionHeader tag="Architecture" title="How Hakuya works" />
         <div className={styles.steps}>
           {FLOW_STEPS.map((step, i) => (
             <motion.div

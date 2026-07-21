@@ -16,7 +16,7 @@ export default function Benchmarks() {
         <SectionHeader
           tag="Benchmarks"
           title="Measured on the hardest public memory benchmark"
-          description="LongMemEval (ICLR 2025) grades long-term conversational memory across six task types, over chat histories that scale past a million tokens. Here is exactly how Engram performs — every task type, every number, nothing hidden."
+          description="LongMemEval (ICLR 2025) grades long-term conversational memory across six task types, over chat histories that scale past a million tokens. Here is exactly how Hakuya performs — every task type, every number, nothing hidden."
         />
 
         <motion.div
@@ -93,7 +93,7 @@ export default function Benchmarks() {
           <div className={styles.noteCard}>
             <h4 className={styles.noteTitle}>Methodology</h4>
             <p className={styles.noteBody}>
-              Engram is the memory store and retrieval layer; the agent reads only what Engram returns. Answers are graded
+              Hakuya is the memory store and retrieval layer; the agent reads only what Hakuya returns. Answers are graded
               by LongMemEval's standard GPT-4o judge against the official LongMemEval set. Strongest areas — knowledge
               updates, abstention, and single-session recall — sit at 89–100%. Temporal reasoning is date-aware (the answerer
               is given the question's reference date) and is the area with the most remaining headroom. Multi-session

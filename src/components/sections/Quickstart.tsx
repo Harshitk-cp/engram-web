@@ -43,8 +43,8 @@ const pythonSteps = [
     code: (
       <>
         <span className={styles.keyword}>from</span> engram{" "}
-        <span className={styles.keyword}>import</span> Engram{"\n\n"}
-        client = Engram({"\n"}
+        <span className={styles.keyword}>import</span> Hakuya{"\n\n"}
+        client = Hakuya({"\n"}
         {"    "}base_url=<span className={styles.string}>"http://localhost:8080"</span>,{"\n"}
         {"    "}api_key=<span className={styles.string}>"mk_..."</span>,{"\n"}
         ){"\n\n"}
@@ -134,7 +134,7 @@ const langchainSteps = [
     label: "terminal",
     code: (
       <>
-        <span className={styles.comment}># Requires a running Engram server — see Python SDK tab</span>
+        <span className={styles.comment}># Requires a running Hakuya server — see Python SDK tab</span>
         {"\n"}pip install langchain-engram
       </>
     ),
@@ -157,10 +157,10 @@ const langchainSteps = [
         {"    "}base_url=<span className={styles.string}>"http://localhost:8080"</span>,{"\n"}
         ){"\n\n"}
         chain = ConversationChain(llm=ChatOpenAI(), memory=memory){"\n\n"}
-        <span className={styles.comment}># Memories persist across sessions in Engram</span>
+        <span className={styles.comment}># Memories persist across sessions in Hakuya</span>
         {"\n"}chain.predict(input=<span className={styles.string}>"I always prefer dark mode"</span>){"\n"}
         chain.predict(input=<span className={styles.string}>"What are my display preferences?"</span>){"\n"}
-        <span className={styles.comment}># → recalls from Engram, not RAM</span>
+        <span className={styles.comment}># → recalls from Hakuya, not RAM</span>
       </>
     ),
   },
@@ -195,7 +195,7 @@ const mcpSteps = [
     label: "terminal",
     code: (
       <>
-        <span className={styles.comment}># Point any MCP client at Engram — no install, no config file</span>
+        <span className={styles.comment}># Point any MCP client at Hakuya — no install, no config file</span>
         {"\n"}claude mcp add --transport http engram \{"\n"}
         {"  "}<span className={styles.string}>"https://console.hakuya.ai/mcp?agent_id=your-agent-id"</span> \{"\n"}
         {"  "}--header <span className={styles.string}>"Authorization: Bearer mk_..."</span>
@@ -208,7 +208,7 @@ const mcpSteps = [
     label: "terminal",
     code: (
       <>
-        <span className={styles.comment}># Every Engram server exposes a built-in /mcp endpoint</span>
+        <span className={styles.comment}># Every Hakuya server exposes a built-in /mcp endpoint</span>
         {"\n"}claude mcp add --transport http engram \{"\n"}
         {"  "}<span className={styles.string}>"https://your-engram-host/mcp?agent_id=your-agent-id"</span> \{"\n"}
         {"  "}--header <span className={styles.string}>"Authorization: Bearer mk_..."</span>

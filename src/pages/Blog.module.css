@@ -1,0 +1,142 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: calc(var(--nav-height) + 72px) 0 120px;
+}
+
+.head {
+  max-width: 720px;
+  margin-bottom: 56px;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  padding: 5px 12px;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  background: var(--accent-dim);
+  margin-bottom: 22px;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.intro {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.empty {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  background: var(--bg-card);
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-card-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+/* Cover sits flush to the card edges (the card owns no padding — .cardBody does),
+   so a plain width:100% is edge-to-edge on both sides. overflow:hidden on the
+   card clips the top corners to the border radius. */
+.cardCover {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Text content — padding lives here now, not on the card. */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 28px 30px 30px;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  padding: 3px 9px;
+  border: 1px solid var(--border-card);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.cardDesc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.dot {
+  opacity: 0.5;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

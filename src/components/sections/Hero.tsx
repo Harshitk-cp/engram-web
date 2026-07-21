@@ -22,7 +22,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.05 }}
             >
-              Provable Agent Memory
+              Memory for AI agents
             </motion.p>
 
             <motion.h1
@@ -31,9 +31,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              Memory you can
+              Give your AI a memory
               <br />
-              <span className={styles.titleAccent}>prove.</span>
+              <span className={styles.titleAccent}>it won&apos;t make up.</span>
             </motion.h1>
 
             <motion.p
@@ -42,11 +42,11 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.26 }}
             >
-              Every other memory layer asks you to trust a black box. Engram
-              records where each belief came from, lets it decay when it goes
-              stale, can erase any subject on request, and writes every change
-              to a tamper-evident audit trail — so you can prove what your
-              agent knows, and why.
+              The memory layer built for people building AI agents. It
+              remembers what matters, forgets what&apos;s gone stale, and lets
+              you prove exactly what it knows — so your agent stops making
+              things up. Open source, and it drops into the tools you already
+              build with.
             </motion.p>
 
             <motion.div

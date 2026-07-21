@@ -27,7 +27,7 @@ export default function Footer() {
                   </linearGradient>
                 </defs>
               </svg>
-              <span className={styles.logoName}>engram</span>
+              <span className={styles.logoName}>hakuya</span>
             </div>
             <p className={styles.tagline}>
               Provable memory infrastructure for production AI agents.
@@ -43,6 +43,8 @@ export default function Footer() {
               <h4>Product</h4>
               <Link to="/#features">Features</Link>
               <Link to="/#memory-systems">Memory Systems</Link>
+              <Link to="/blog">Blog</Link>
+              <Link to="/#faq">FAQ</Link>
               <a href={DOCS_URL} target="_blank" rel="noopener noreferrer">Docs</a>
               <Link to="/#quickstart">Quickstart</Link>
               <Link to="/#contact">Contact</Link>
@@ -68,7 +70,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span className={styles.copy}>
-            &copy; {new Date().getFullYear()} Engram. Released under the Apache-2.0 License.
+            &copy; {new Date().getFullYear()} Hakuya. Released under the Apache-2.0 License.
           </span>
           <div className={styles.bottomLinks}>
             <Link to="/privacy">Privacy</Link>

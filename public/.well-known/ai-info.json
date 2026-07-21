@@ -1,5 +1,5 @@
 {
-  "name": "Engram",
+  "name": "Hakuya",
   "description": "Open-source cognitive memory infrastructure for AI agents. Persistent memory with semantic, episodic, procedural, and working memory systems. Confidence-based tiering, belief dynamics, hybrid vector + graph retrieval.",
   "url": "https://hakuya.ai",
   "repository": "https://github.com/Harshitk-cp/engram",
